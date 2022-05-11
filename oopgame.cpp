@@ -2,19 +2,20 @@
 
 class Player{
     protected:
-        sf::RectangleShape* playa;
+        sf::RectangleShape* body;
     public:
         Player(int size,int x,int y){
-            playa = new sf::RectangleShape(sf::Vector2f(size,size));
-            playa->setOrigin(sf::Vector2f(size/2,size/2));
-            playa->setPosition(sf::Vector2f(x,y));
-            playa->setFillColor(sf::Color::Red);
+            body = new sf::RectangleShape(sf::Vector2f(size,size));
+            body->setOrigin(sf::Vector2f(size/2,size/2));
+            body->setPosition(sf::Vector2f(x,y));
+            body->setFillColor(sf::Color::Red);
         }
         void draw(sf::RenderWindow *window){
-            window->draw(*playa); 
+            window->draw(*body); 
         }
-        sf::RectangleShape getPlayer(){return *playa;}
+        sf::RectangleShape getPlayer(){return *body;}
 };
+
 
 class oopGame{
     protected:
