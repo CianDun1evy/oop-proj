@@ -1,0 +1,102 @@
+class Movement{ // I don't think movement should be it's own class, there isn't a simple way to call the functions without having smth to call from protected/private
+    protected:
+    
+    public:
+        void movex(sf::CircleShape& a, int xpixels);
+        void movey(sf::CircleShape& a, int ypixels);
+        void movex(sf::RectangleShape& a, int xpixels);
+        void movey(sf::RectangleShape& a, int ypixels);
+};
+
+class GameEntity{
+    protected:
+    public:
+    // movement figured out here:
+        void movex(sf::CircleShape& a, int xpixels);
+        void movey(sf::CircleShape& a, int ypixels); // then player and collectible inherit from here, Player overloads ?
+    //collisions figured out here
+        bool collision(sf::RectangleShape& a); // return 1 if collision, 0 if not; 
+        bool collision(sf::CircleShape& a); // overloading
+};
+
+
+class Player:public GameEntity{
+    protected:
+        sf::RectangleShape* body;
+    public:
+        Player(int size,int x,int y); // sets size of body and it's window position
+        void draw(sf::RenderWindow *window); // draws player body in the window
+        void respawn(sf::Vector2f a); // function to respawn a player to a location in game
+};
+
+class Collectible: public GameEntity{ // initialises all circle objects 
+    protected:
+        sf::CircleObject *circle;
+    public:
+        Collectible(); // standard constructor, has the whole "circle = new sf::CircleObject(yadayada)"
+        getCircle();   //return circle;
+        void draw(sf::RenderWindow *window); // draws collectible  in the window
+        ~Colletible(); // standard destructor
+};
+
+// Inheritance
+class Enemy:public Collectible{
+    protected:
+    public:
+        //public functions describing enemy behaviours, like collision causes respawn
+        Enemy();//Default constructor setting colour, behaviour etc
+};
+class Coin:public Collectible{
+    protected:
+    public:
+        // functions describing behaviours for coins
+        Coin();//default constructor
+}
+
+
+class oopGame{
+    protected:
+        sf::RenderWindow* window; // game window pointer
+        Player *player; // player pointer
+    public:
+        oopGame(int sizex,int sizey,std::string title); // constructor setting screen size and title of game window
+
+        void run(); // runs the game loop and is the function that's called to run the game
+
+        ~oopGame() // standard destructor
+};
+
+
+// Also potentially have Highscore that is stored in a text file,
+// which contains least number of deaths before completing the level!
+// displays best and worst attempts, from least deaths to worst deaths, and displays your current score or smth
+
+
+
+// Useless stuff from Project Plan: 
+Class Game{
+private:
+sf::RenderWindow* window; // uses sfml library to make pointer to window object
+Public:
+	game(); // standard constructor
+	game(int sizex,int sizey, std::string text); // constructor
+	
+	Void run(); // deals with running the window and performing all actions while game runs
+	~game(); // standard destructor 
+	
+
+GameEntity (movement functions and collision detection occurs here)
+Player (maybe could have two) 
+Collectibles
+enemies 
+Coins	
+Shape (maybe not actually) // probably not
+
+
+Maybe have these as separate classes
+Movement 
+Collisions
+Shape class (circle and square) for aggregation in Game Entity? (abstract class?)
+
+
+^^ maybe it would be better that this be in Game Entity, and that Player and Collectible inherit from there
