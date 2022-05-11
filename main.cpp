@@ -5,10 +5,10 @@
 //using namespace sf;
 
 // This is how to do it I reckon, but would have to define every object in terms of shape etc. idk maybe not best, we'll see I guess
-class Shape{
-    sf::CircleShape circle;
-    sf::RectangleShape rectangle;
-};
+// class Shape{
+//     sf::CircleShape circle;
+//     sf::RectangleShape rectangle;
+// };
 
 //void movex(Shape &a,int pix){ // pix is how many pixels to move, in either negative or positive direction
 //     sf::Vector2f pose = a.getPosition();
