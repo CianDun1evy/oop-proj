@@ -7,6 +7,7 @@ class Movement{ // I don't think movement should be it's own class, there isn't 
         void movex(sf::RectangleShape& a, int xpixels);
         void movey(sf::RectangleShape& a, int ypixels);
 };
+^^ not this, get rid of that
 
 class GameEntity{
     protected:
@@ -15,9 +16,17 @@ class GameEntity{
         void movex(sf::CircleShape& a, int xpixels);
         void movey(sf::CircleShape& a, int ypixels); // then player and collectible inherit from here, Player overloads ?
     //collisions figured out here
+    
         bool collision(sf::RectangleShape& a); // return 1 if collision, 0 if not; 
         bool collision(sf::CircleShape& a); // overloading
 };
+
+class Wall :public GameEntity{
+
+    bool collision(sf::RectangleShape playerbody,sf::RectangleShape wall){
+        
+    }
+}
 
 
 class Player:public GameEntity{
