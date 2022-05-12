@@ -1,6 +1,42 @@
 #include<SFML/Graphics.hpp>
 
-class Player{
+class GameEntity{
+    protected:
+    public:
+    // movement figured out here:
+        // void movex(sf::CircleShape& a, int xpixels);
+        // void movey(sf::CircleShape& a, int ypixels); // then player and collectible inherit from here, Player overloads ?
+
+        void movex(sf::CircleShape& a, int xpixels){
+            sf::Vector2f pose = a.getPosition();
+            pose.x+=xpixels;
+            a.setPosition(pose);
+        }
+        void movey(sf::CircleShape& a, int ypixels){
+            sf::Vector2f pose = a.getPosition();
+            pose.y+=ypixels;
+            a.setPosition(pose);
+        }
+        void movex(sf::RectangleShape& a, int xpixels){
+            sf::Vector2f pose = a.getPosition();
+            pose.x+=xpixels;
+            a.setPosition(pose);
+        }
+        void movey(sf::RectangleShape& a, int ypixels){
+            sf::Vector2f pose = a.getPosition();
+            pose.y+=ypixels;
+            a.setPosition(pose);
+        }
+
+    
+    
+    //collisions figured out here
+        // bool collision(sf::RectangleShape& a); // return 1 if collision, 0 if not; 
+        // bool collision(sf::CircleShape& a); // overloading
+};
+
+
+class Player:public GameEntity{
     protected:
         sf::RectangleShape* body;
     public:
@@ -13,8 +49,55 @@ class Player{
         void draw(sf::RenderWindow *window){
             window->draw(*body); 
         }
-        sf::RectangleShape getPlayer(){return *body;}
+        sf::RectangleShape getBody(){return *body;}
+        // void movex(int a){
+        //     GameEntity::movex(this->body,a);
+        // }
+        // void movement(sf::RectangleShape daddy, int speed){ // have this as a template?
+            
+        //     // LEFT
+        //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+        //         // left key is pressed: move our character
+        //        // daddy.move(-5.f, 0.f); // the following code just does the same thing as daddy.move, so might want to just use move. don't see any advantage yet to not
+        //         movex(daddy,-speed);
+        //     }
+            // RIGHT
+            //  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            //     // left key is pressed: move our character
+            //     movex(daddy,speed);
+
+            // } 
+            // //UP
+            // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            //     // left key is pressed: move our character
+            //     movey(daddy,-speed);
+            // }
+            // //down
+            // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+            //     // left key is pressed: move our character
+            //     movey(daddy,speed);
+            // }
+        //}
 };
+
+//sf::Shape
+// class Shape{
+
+//     sf::RectangleShape a;
+//     sf::CircleShape a;
+    
+// }
+// class Movement{ // I don't think movement should be it's own class, there isn't a simple way to call the functions without having smth to call from protected/private
+//     protected:
+//         // nothing here, hopefully should be aight
+//     public:
+
+//     // can use template to not overload 
+        
+
+//        // template <typename shape>
+    
+// };
 
 
 class oopGame{
@@ -30,7 +113,8 @@ class oopGame{
 
         void run(){
             while (window->isOpen()){
-        
+                
+                // handles closing the window manually
                 sf::Event e;
                 while (window->pollEvent(e)){
 
@@ -39,11 +123,37 @@ class oopGame{
                     }
                 }
                 
+                 // LEFT
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                // left key is pressed: move our character
+               // daddy.move(-5.f, 0.f); // the following code just does the same thing as daddy.move, so might want to just use move. don't see any advantage yet to not
+               // player->movex(player->getBody(),-1);
+               // player->movex(-1);
+            }
+            // // RIGHT
+            //  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            //     // left key is pressed: move our character
+            //     player->movex(player->getBody(),1);
+
+            // } 
+            // //UP
+            // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            //     // left key is pressed: move our character
+            //     player->movey(player->getBody(),-1);
+            // }
+            // //down
+            // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+            //     // left key is pressed: move our character
+            //     player->movey(player->getBody(),1);
+            // }
+
+                // movement done here. idk, not really good to have it here I think
+                //player->movement(player->getBody(), 1);
 
                 window->clear();
                 // insert window->draw() here
                // player->draw(window);
-                window->draw(player->getPlayer()); // Soooo okay can either have a draw function or a get function that you call then draw
+                window->draw(player->getBody()); // Soooo okay can either have a draw function or a get function that you call then draw
 
                 window->display();
             }
@@ -56,7 +166,7 @@ class oopGame{
 
 int main(){
     
-    oopGame game(960, 540,"test");
+    oopGame game(960, 540,"daddy");
     game.run();
     return 0;
 }
