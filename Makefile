@@ -17,6 +17,8 @@ testing:
 simran:
 	g++ newgame.cpp -I/usr/local/Cellar/sfml/2.5.1_1/include/  -o t -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
+simran1:
+	g++ newgame.cpp  -o t -lsfml-graphics -lsfml-window -lsfml-system
 
 
 clean:

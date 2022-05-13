@@ -86,7 +86,7 @@ int main()
 
 
     // important that aspect ratio of window is same as screen resolution, otherwise fullscreen bad
-    sf::RenderWindow GameWindow(sf::VideoMode(3840, 2160), "Test Game!");
+    sf::RenderWindow GameWindow(sf::VideoMode(3840, 2160), "Sim Test!");
     float radius = 15;
     sf::CircleShape shape1(radius); 
     shape1.setFillColor(sf::Color::Cyan);
