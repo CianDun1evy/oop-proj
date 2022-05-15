@@ -20,6 +20,10 @@ simran:
 simran1:
 	g++ newgame.cpp  -o t -lsfml-graphics -lsfml-window -lsfml-system
 
+game1:
+	g++ game1.cpp  -o t -lsfml-graphics -lsfml-window -lsfml-system
+
+
 
 clean:
 	rm sfml t test

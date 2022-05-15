@@ -1,10 +1,15 @@
 /* sorta a draft on concepts ofo how to use sfml with classes:
 #include<The graphics>
 
+class Game{
+    // game runs straight from here
+
+};
+
 class GameEntity{
     protected:
         sf::CircleShape circle;  // maybe figure out some way to switch between Circle and square (EASY, just redefine once you're in player! overloading or polymorphism or whatever)
-        std::tring name;
+        std::string name;
         int HP;
     public:
         sf::CircleShape getShape(){return circle; } // displayed getShape(); // in header file
