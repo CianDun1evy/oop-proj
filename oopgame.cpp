@@ -1,28 +1,32 @@
 #include<SFML/Graphics.hpp>
+#include<iostream>
 
 class GameEntity{
-    protected:
+   // protected:
     public:
     // movement figured out here:
         // void movex(sf::CircleShape& a, int xpixels);
         // void movey(sf::CircleShape& a, int ypixels); // then player and collectible inherit from here, Player overloads ?
 
-        void movex(sf::CircleShape& a, int xpixels){
+        void movex(sf::CircleShape a, int xpixels){
             sf::Vector2f pose = a.getPosition();
             pose.x+=xpixels;
             a.setPosition(pose);
+            std::cout<<"movex called"<<std::endl;
         }
-        void movey(sf::CircleShape& a, int ypixels){
+        void movey(sf::CircleShape a, int ypixels){
             sf::Vector2f pose = a.getPosition();
             pose.y+=ypixels;
             a.setPosition(pose);
         }
-        void movex(sf::RectangleShape& a, int xpixels){
+        void movex(sf::RectangleShape a, int xpixels){
             sf::Vector2f pose = a.getPosition();
             pose.x+=xpixels;
             a.setPosition(pose);
+            std::cout<<"R movex called"<<std::endl;
+
         }
-        void movey(sf::RectangleShape& a, int ypixels){
+        void movey(sf::RectangleShape a, int ypixels){
             sf::Vector2f pose = a.getPosition();
             pose.y+=ypixels;
             a.setPosition(pose);
@@ -38,18 +42,22 @@ class GameEntity{
 
 class Player:public GameEntity{
     protected:
-        sf::RectangleShape* body;
+        sf::RectangleShape * body; // it was a pointer before, now just straight object
     public:
         Player(int size,int x,int y){
             body = new sf::RectangleShape(sf::Vector2f(size,size));
             body->setOrigin(sf::Vector2f(size/2,size/2));
             body->setPosition(sf::Vector2f(x,y));
             body->setFillColor(sf::Color::Red);
+            std::cout<<"player initialised"<<std::endl;
         }
         void draw(sf::RenderWindow *window){
+            std::cout<<"drawn!"<<std::endl;
             window->draw(*body); 
         }
         sf::RectangleShape getBody(){return *body;}
+
+
         // void movex(int a){
         //     GameEntity::movex(this->body,a);
         // }
@@ -126,9 +134,12 @@ class oopGame{
                  // LEFT
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
                 // left key is pressed: move our character
-               // daddy.move(-5.f, 0.f); // the following code just does the same thing as daddy.move, so might want to just use move. don't see any advantage yet to not
+               //daddy.move(-5.f, 0.f); // the following code just does the same thing as daddy.move, so might want to just use move. don't see any advantage yet to not
                // player->movex(player->getBody(),-1);
-               // player->movex(-1);
+                //this->player->movex(player->getBody(),-100);
+                player->getBody().move(-5.f, 0.f);
+                std::cout<<"A or left keyboard pressed"<<std::endl;
+            //    player->movex(-1);
             }
             // // RIGHT
             //  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
