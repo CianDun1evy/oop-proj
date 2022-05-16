@@ -2,8 +2,17 @@
 #include<SFML/Graphics.hpp>
 
 
+// class GameEntity{
+//     public:
+//         virtual void move(int x, int y){
+//             // could make this look more complex
+//             this->body->move(x,y);
+//             std::cout<<"body moved!"<<std::endl;
+//         }
 
+// };
 
+// class Player:public GameEntity{
 class Player{
     protected:
 
