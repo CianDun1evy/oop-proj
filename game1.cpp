@@ -3,6 +3,8 @@
 
 
 // class GameEntity{
+//     protected:
+//  // sf::RectangleShape* body; // okay so having a body doesn't work either
 //     public:
 //         virtual void move(int x, int y){
 //             // could make this look more complex
