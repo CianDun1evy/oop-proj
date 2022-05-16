@@ -2,23 +2,44 @@
 #include<SFML/Graphics.hpp>
 
 
-// class GameEntity{
-//     protected:
-//  // sf::RectangleShape* body; // okay so having a body doesn't work either
-//     public:
-//         virtual void move(int x, int y){
-//             // could make this look more complex
-//             this->body->move(x,y);
-//             std::cout<<"body moved!"<<std::endl;
-//         }
+class GameEntity{
+    protected:
+        sf::Shape *body;
+ // sf::RectangleShape* body; // okay so having a body doesn't work either
+    public:
+        void move(int x, int y){ 
+            // could make this look more complex
+            this->body->move(x,y);
+            std::cout<<"body moved!"<<std::endl;
+        }
 
-// };
+        //virtual void update()=0;
 
-// class Player:public GameEntity{
-class Player{
+
+
+        //  bool overlaps(vector Wall+EnemyArray){
+            //check if this->body overl
+
+            // for (int i =0;i<gameEntities.size();i++){
+
+                            //overlap check with wall[i] and body
+                //     }
+        // }
+        // void respawn(){
+        //     if overlaps(){
+        //         body->setPosition(100,100);
+        //     }
+        // }
+        
+
+};
+
+
+class Player:public GameEntity{
+//class Player{
     protected:
 
-        sf::RectangleShape *body;
+       // sf::RectangleShape *body;
 
     public:
         Player(int size, int x, int y){
@@ -27,21 +48,33 @@ class Player{
             body->setPosition(sf::Vector2f(x,y));
             body->setFillColor(sf::Color::Red);
             std::cout<<"player initialised"<<std::endl;
-
         }
        // Player(){}
         //~Player(){}
 
-        void move(int x, int y){
-            // could make this look more complex
-            this->body->move(x,y);
-            std::cout<<"body moved!"<<std::endl;
-        }
+        // void move(int x, int y){
+        //     // could make this look more complex
+        //     this->body->move(x,y);
+        //     std::cout<<"body moved!"<<std::endl;
+        // }
         void draw(sf::RenderWindow *window){
             window->draw(*body); 
             //std::cout<<"drawn!"<<std::endl;
 
         }
+
+};
+
+class Collectible:public GameEntity{
+
+
+};
+
+class Enemy:public GameEntity{
+
+};
+
+class Walls:public GameEntity{ // this may not be necessary
 
 };
 
@@ -56,12 +89,15 @@ class Game{
         
         sf::CircleShape *shape1; // delete this
 
+        //std::vector<GameEntity *> gameEntities;
 
     public:
         Game(int x,int y,std::string title){
             window = new sf::RenderWindow(sf::VideoMode(x,y),title);
             player = new Player(50,420,520);
-         
+
+           // gameEntities.push_back(player);
+
             // delete this:
             shape1 = new sf::CircleShape(15.f);
             shape1->setOrigin(sf::Vector2f(15,15));
@@ -83,6 +119,14 @@ class Game{
                     }
                 }
                 
+                 // update function updates all 
+                // void update(){
+                //     for (int i =0;i<gameEntities.size();i++){
+                //         GameEntity* current = gameEntities.at(i);
+                //         current->update();
+                //     }
+                // }
+
                  // LEFT
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
                     this->player->move(-1,0);
@@ -101,6 +145,8 @@ class Game{
                     std::cout<<"S or down keyboard pressed"<<std::endl;
                 }
 
+               // update(); // input delta time
+                
                 window->clear();
                 player->draw(window);
 
@@ -109,7 +155,10 @@ class Game{
                 window->display();
             }
         }
+            
+        
 };
+
 
 
 
