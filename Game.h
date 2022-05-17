@@ -6,6 +6,7 @@
 #include "GameEntity.h"
 #include "Player.h"
 #include "Walls.h"
+#include "Enemy.h"
 
 class Game : public GameEntity 
 {
@@ -24,7 +25,16 @@ protected:
     Walls *wall12;
     Walls *wall21;
     Walls *wall22;
-
+    Enemy *e1;
+    Enemy *e2;
+    Enemy *e3;
+    Enemy *e4;
+    Enemy *e5;
+    Enemy *e6;
+    Enemy *e7;
+    Enemy *e8;
+    Enemy *e9;
+    Enemy *e10;
 //    sf::CircleShape *shape1; // delete this
 
     // std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
