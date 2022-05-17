@@ -12,8 +12,10 @@ class Game : public GameEntity
     // game runs straight from here
 protected:
     sf::RenderWindow *window;
+
     Player *player1;
     Player *player2;
+    
     Walls *boundary_top;
     Walls *boundary_bottom;
     Walls *boundary_left;
@@ -25,7 +27,7 @@ protected:
 
 //    sf::CircleShape *shape1; // delete this
 
-    // std::vector<GameEntity *> gameEntities;
+    // std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
 
 public:
     Game(int x, int y, std::string title);

@@ -6,9 +6,15 @@
 #include "Game.h"
 
 Game::Game(int x,int y,std::string title){
+
+            // Initialise Game Window
             window = new sf::RenderWindow(sf::VideoMode(x,y),title);
+
+            // Initialise Players
             player1 = new Player(20,96,54);
             player2 = new Player(20,864,486);
+
+            // Initialise Walls
             boundary_top = new Walls(960,15, 960/2,15/2);
             boundary_bottom = new Walls(960,15, 960/2,540-15/2);
             boundary_left = new Walls(15,540, 15/2,540/2);
@@ -89,6 +95,8 @@ void Game::run()        {
                // update(); // input delta time
                 
                 window->clear();
+
+                // drawing players and walls onto window
                 player1->draw(window);
                 player2->draw(window);
                 boundary_top->draw(window);
@@ -99,7 +107,6 @@ void Game::run()        {
                 wall21->draw(window);
                 wall12->draw(window);
                 wall22->draw(window);
-                //window->draw(*shape1); // delete this
                 
                 window->display();
             }
