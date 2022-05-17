@@ -8,7 +8,7 @@ Player::Player(int size, int x, int y){
             body = new sf::RectangleShape(sf::Vector2f(size,size));
             body->setOrigin(sf::Vector2f(size/2,size/2));
             body->setPosition(sf::Vector2f(x,y));
-            body->setFillColor(sf::Color::Red);
+            body->setFillColor(sf::Color::Blue);
             std::cout<<"player initialised"<<std::endl;
         }
 
