@@ -116,7 +116,7 @@ void Game::run()
         }
 
         // Enemy
-        while (window->pollEvent(e))
+        while (window->pollEvent(e)) // collision detection likely affected by this loop (or maybe not idk, currently not super consistent respawn)
         {
 
             this->e1->move(0, -1);
