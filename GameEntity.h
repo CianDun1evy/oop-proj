@@ -38,11 +38,12 @@ class GameEntity{
         sf::Shape *body;
  // sf::RectangleShape* body; // okay so having a body doesn't work either
     public:
-        void move(int x, int y){ 
-            // could make this look more complex
-            this->body->move(x,y);
-            std::cout<<"body moved!"<<std::endl;
-        }
+        void move(int x, int y);
+        // { 
+        //     // could make this look more complex
+        //     this->body->move(x,y);
+        //     std::cout<<"body moved!"<<std::endl;
+        // }
 
         //virtual void update()=0;
 

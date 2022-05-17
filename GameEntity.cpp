@@ -2,6 +2,8 @@
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
+#include "Game.h"
+
 
 void GameEntity::move(int x, int y){ 
             // could make this look more complex

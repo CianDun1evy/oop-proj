@@ -12,13 +12,14 @@ class Player:public GameEntity{
        // sf::RectangleShape *body;
 
     public:
-        Player(int size, int x, int y){
-            body = new sf::RectangleShape(sf::Vector2f(size,size));
-            body->setOrigin(sf::Vector2f(size/2,size/2));
-            body->setPosition(sf::Vector2f(x,y));
-            body->setFillColor(sf::Color::Red);
-            std::cout<<"player initialised"<<std::endl;
-        }
+        Player(int size, int x, int y);
+        // {
+        //     body = new sf::RectangleShape(sf::Vector2f(size,size));
+        //     body->setOrigin(sf::Vector2f(size/2,size/2));
+        //     body->setPosition(sf::Vector2f(x,y));
+        //     body->setFillColor(sf::Color::Red);
+        //     std::cout<<"player initialised"<<std::endl;
+        // }
        // Player(){}
         //~Player(){}
 
@@ -27,11 +28,12 @@ class Player:public GameEntity{
         //     this->body->move(x,y);
         //     std::cout<<"body moved!"<<std::endl;
         // }
-        void draw(sf::RenderWindow *window){
-            window->draw(*body); 
-            //std::cout<<"drawn!"<<std::endl;
+        void draw(sf::RenderWindow *window);
+        // {
+        //     window->draw(*body); 
+        //     //std::cout<<"drawn!"<<std::endl;
 
-        }
+        // }
 
 };
 
