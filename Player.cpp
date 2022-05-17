@@ -17,3 +17,11 @@ void Player::draw(sf::RenderWindow *window){
             //std::cout<<"drawn!"<<std::endl;
 
         }
+
+void Player::respawn(int x,int y,Enemy* _enemy){
+    // if a player overlaps with an enemy (overlaps must take vector containing enemies as input)
+    if(this->overlaps(_enemy)==1){
+        this->body->setPosition(x,y);
+    }
+    else{}
+}

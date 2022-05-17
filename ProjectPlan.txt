@@ -7,6 +7,7 @@ class Movement{ // I don't think movement should be it's own class, there isn't 
         void movex(sf::RectangleShape& a, int xpixels);
         void movey(sf::RectangleShape& a, int ypixels);
 };
+^^Didn't end up doing
 
 class GameEntity{
     protected:

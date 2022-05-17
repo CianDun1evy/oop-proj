@@ -12,10 +12,12 @@ Enemy::Enemy(int pos) {
     this->x = 192 + (50*pos);
     this->y = (rand()%450+50);
 
-    this->body = new sf::RectangleShape(sf::Vector2f(40,40));
+    this->body = new sf::CircleShape(10.f);
+
+    // this->body = new sf::CircleShape(sf::Vector2f(40,40));
     this->body->setOrigin(sf::Vector2f(25,25));
     this->body->setPosition(sf::Vector2f(x,y));
-    this->body->setFillColor(sf::Color::Yellow);
+    this->body->setFillColor(sf::Color::Red);
     std::cout<<"enemy initialised"<<std::endl;
 }
 

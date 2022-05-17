@@ -13,8 +13,8 @@ Game::Game(int x, int y, std::string title)
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
 
     // Initialise Players
-    player1 = new Player(20, 96, 54, sf::Color::Red);
-    player2 = new Player(20, 864, 486, sf::Color::Blue);
+    player1 = new Player(20, 96, 54, sf::Color::Green);
+    player2 = new Player(20, 864, 486, sf::Color::Cyan);
 
     // Initialise Walls
     boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
@@ -75,44 +75,44 @@ void Game::run()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
             this->player1->move(-1, 0);
-            std::cout << "A or left keyboard pressed" << std::endl;
+            std::cout << "A keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
             this->player1->move(1, 0);
-            std::cout << "D or right keyboard pressed" << std::endl;
+            std::cout << "D keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         {
             this->player1->move(0, -1);
-            std::cout << "W or up keyboard pressed" << std::endl;
+            std::cout << "W keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         {
             this->player1->move(0, 1);
-            std::cout << "S or down keyboard pressed" << std::endl;
+            std::cout << "S keyboard pressed" << std::endl;
         }
 
         // Player 2
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             this->player2->move(-1, 0);
-            std::cout << "A or left keyboard pressed" << std::endl;
+            std::cout << "left keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             this->player2->move(1, 0);
-            std::cout << "D or right keyboard pressed" << std::endl;
+            std::cout << "right keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             this->player2->move(0, -1);
-            std::cout << "W or up keyboard pressed" << std::endl;
+            std::cout << "keyboard pressed" << std::endl;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             this->player2->move(0, 1);
-            std::cout << "S or down keyboard pressed" << std::endl;
+            std::cout << "down keyboard pressed" << std::endl;
         }
 
         // Enemy
@@ -128,8 +128,33 @@ void Game::run()
             this->e7->move(0, -1);
             this->e8->move(0, 1);
             this->e9->move(0, -1);
-            this->e10->move(0, 1);
+            //this->e10->move(0, 1);
         }
+
+
+        // BASIC UNFINISHED COLLISION DETECTION (will be made into a vector input format)
+        // this->player1->overlaps(e1);
+        // this->player1->overlaps(e2);
+        // this->player1->overlaps(e3);
+        // this->player1->overlaps(e4);
+        // this->player1->overlaps(e5);
+        // this->player1->overlaps(e6);
+        // this->player1->overlaps(e7);
+        // this->player1->overlaps(e8);
+        // this->player1->overlaps(e9);
+        // this->player1->overlaps(e10);
+
+        // DEATH -- respawn player1 if they overlap with an enemy
+        this->player1->respawn(100,200,e1);
+        this->player1->respawn(100,200,e2);
+        this->player1->respawn(100,200,e3);
+        this->player1->respawn(100,200,e4);
+        this->player1->respawn(100,200,e5);
+        this->player1->respawn(100,200,e6);
+        this->player1->respawn(100,200,e7);
+        this->player1->respawn(100,200,e8);
+        this->player1->respawn(100,200,e9);
+        this->player1->respawn(100,200,e10);
 
         // update(); // input delta time
 
