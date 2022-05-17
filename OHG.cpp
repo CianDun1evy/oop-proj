@@ -1,6 +1,8 @@
 // This is OOP's Hardest Game
 // this is the main function
 
+// made by Cian, Simran and Jyo
+
 #include<iostream>
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
