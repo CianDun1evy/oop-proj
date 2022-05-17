@@ -7,17 +7,20 @@
 #include <cstdlib>
 
 Enemy::Enemy(int pos) {
-x = 192 + (50*pos);
-y = (rand()%450+50) ;
-body = new sf::RectangleShape(sf::Vector2f(40,40));
-body->setOrigin(sf::Vector2f(25,25));
-body->setPosition(sf::Vector2f(x,y));
-body->setFillColor(sf::Color::Yellow);
-std::cout<<"player initialised"<<std::endl;
+    
+    // hard-code simple enemy movement
+    this->x = 192 + (50*pos);
+    this->y = (rand()%450+50);
+
+    this->body = new sf::RectangleShape(sf::Vector2f(40,40));
+    this->body->setOrigin(sf::Vector2f(25,25));
+    this->body->setPosition(sf::Vector2f(x,y));
+    this->body->setFillColor(sf::Color::Yellow);
+    std::cout<<"enemy initialised"<<std::endl;
 }
 
 void Enemy::draw(sf::RenderWindow *window){
-window->draw(*body); 
+    window->draw(*body);    
 //std::cout<<"drawn!"<<std::endl;
 
 }

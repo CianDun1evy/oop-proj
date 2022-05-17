@@ -6,13 +6,13 @@
 #include "Player.h"
 
 class Enemy:public GameEntity{
-protected:
-int x=0, y=0;
+    protected:
+        int x=0, y=0;
 // nothing here yet
 
-public:
-Enemy(int pos);
-void draw(sf::RenderWindow *window);
+    public:
+        Enemy(int pos);
+        void draw(sf::RenderWindow *window);    
 };
 
 #endif
