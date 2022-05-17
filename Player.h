@@ -10,7 +10,7 @@ class Player:public GameEntity{
         // nothing here yet
 
     public:
-        Player(int size, int x, int y);
+        Player(int size, int x, int y,sf::Color color);
         void draw(sf::RenderWindow *window);
 
 };
