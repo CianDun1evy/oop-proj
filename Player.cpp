@@ -25,3 +25,36 @@ void Player::respawn(int x,int y,Enemy* _enemy){
     }
     else{}
 }
+
+void Player::inputmove(int a){
+    sf::Keyboard::Key l,r,u,d; // left, right, up, down
+
+    // setup which keybinds to use for player
+    if(a==0){
+        l = sf::Keyboard::A;
+        r = sf::Keyboard::D;
+        u = sf::Keyboard::W;
+        d = sf::Keyboard::S;
+    }
+    else if (a==1){
+        l = sf::Keyboard::Left;
+        r = sf::Keyboard::Right;
+        u = sf::Keyboard::Up;
+        d = sf::Keyboard::Down;
+    } // can add more movement key configs if needed
+
+    // move player based on user input
+    if (sf::Keyboard::isKeyPressed(l)){
+        this->move(-1,0);
+    }
+    if (sf::Keyboard::isKeyPressed(r)){
+        this->move(1,0);
+    }
+    if (sf::Keyboard::isKeyPressed(u)){
+        this->move(0,-1);
+    }
+    if (sf::Keyboard::isKeyPressed(d)){
+        this->move(0,1);
+    }
+}
+

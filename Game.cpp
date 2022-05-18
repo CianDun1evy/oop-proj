@@ -70,51 +70,14 @@ void Game::run()
         //         current->update();
         //     }
         // }
+        
+        // Player 1 movement
+        player1->inputmove(0);
 
-        // Player 1
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            this->player1->move(-1, 0);
-            std::cout << "A keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        {
-            this->player1->move(1, 0);
-            std::cout << "D keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        {
-            this->player1->move(0, -1);
-            std::cout << "W keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        {
-            this->player1->move(0, 1);
-            std::cout << "S keyboard pressed" << std::endl;
-        }
 
-        // Player 2
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            this->player2->move(-1, 0);
-            std::cout << "left keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            this->player2->move(1, 0);
-            std::cout << "right keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            this->player2->move(0, -1);
-            std::cout << "keyboard pressed" << std::endl;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            this->player2->move(0, 1);
-            std::cout << "down keyboard pressed" << std::endl;
-        }
-
+        // Player 2 movement
+        player2->inputmove(1);
+    
         // Enemy
         while (window->pollEvent(e)) // collision detection likely affected by this loop (or maybe not idk, currently not super consistent respawn)
         {
@@ -128,7 +91,7 @@ void Game::run()
             this->e7->move(0, -1);
             this->e8->move(0, 1);
             this->e9->move(0, -1);
-            //this->e10->move(0, 1);
+            //this->e10->move(0, 1); // commented for testing purposes
         }
 
 
@@ -144,7 +107,7 @@ void Game::run()
         // this->player1->overlaps(e9);
         // this->player1->overlaps(e10);
 
-        // DEATH -- respawn player1 if they overlap with an enemy
+        // DEATH -- respawn player1 if they overlap with an enemy (ofc inefficient rn)
         this->player1->respawn(100,200,e1);
         this->player1->respawn(100,200,e2);
         this->player1->respawn(100,200,e3);
