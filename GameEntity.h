@@ -15,7 +15,7 @@ class GameEntity{
 
         //virtual void update()=0;
 
-        bool overlaps(GameEntity* _e);//(vector Wall+EnemyArray); // 
+        bool overlaps(GameEntity* _e);//std::vector<GameEntity *> gameEntities; // that should be input
   
     
 };

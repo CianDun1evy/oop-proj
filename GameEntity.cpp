@@ -18,6 +18,8 @@ void GameEntity::move(int x, int y){
 /*// overlaps should take a Shape vector as input
  (can take list of enemies vector and list of walls vector
   - maybe split into vert walls and horiz walls)
+
+  std::vector<GameEntity *> gameEntities; // that should be input type?
 */
 bool GameEntity::overlaps(GameEntity* _enemy){ // this should then become a vector/array of enemies, and then also used for walls 
     

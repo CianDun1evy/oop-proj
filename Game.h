@@ -25,6 +25,7 @@ protected:
     Walls *wall12;
     Walls *wall21;
     Walls *wall22;
+    
     Enemy *e1;
     Enemy *e2;
     Enemy *e3;
@@ -35,10 +36,14 @@ protected:
     Enemy *e8;
     Enemy *e9;
     Enemy *e10;
-//    sf::CircleShape *shape1; // delete this
 
-    // std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
+    //std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
 
+    // or, as behaviour is different based on which collision happens
+
+    // std::vector<GameEntity *> gameEnemies;
+    // std::vector<GameEntity *> vertWalls; // maybe freeze x when vert and y when horiz? idk
+    // std::vector<GameEntity *> horizWalls;
 public:
     Game(int x, int y, std::string title);
 

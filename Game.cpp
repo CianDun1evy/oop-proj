@@ -39,11 +39,6 @@ Game::Game(int x, int y, std::string title)
     e10 = new Enemy(10);
 
     // gameEntities.push_back(player);
-
-    // // delete this:
-    // shape1 = new sf::CircleShape(15.f);
-    // shape1->setOrigin(sf::Vector2f(15,15));
-    // shape1->setPosition(sf::Vector2f(480,270));
 }
 
 void Game::run()
