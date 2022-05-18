@@ -7,7 +7,7 @@
 
 class Enemy:public GameEntity{
     protected:
-        int x=0, y=0;
+        int x, y;
 // nothing here yet
 
     public:
