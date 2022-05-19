@@ -8,20 +8,26 @@
 class GameEntity{
 protected:
     sf::Shape *body;
+
+    // put size values for the shape in here, so i guess:
+    // set these vals to whatever it is when you initialise in each constructor
+    // 
+    // int sizex,sizey;
+    
+
     // sf::RectangleShape* body; // okay so having a body doesn't work either
 public:
     void move(int x, int y);
 
     void draw(sf::RenderWindow *window);
 
-    // have draw func in here
-    // void draw(sf::RenderWindow *window);
-
     // virtual void update()=0;
 
-    bool overlaps(GameEntity *_e); // std::vector<GameEntity *> gameEntities; // that should be input
+    bool overlaps(GameEntity *_enemy); // std::vector<GameEntity *> gameEntities; // that should be input
 
-    // draw the game entity to the window
+    // sf::Vector2f getBodySize(){
+    //     return sf::Vector2f(this->sizex,this->sizey);
+    // }
 };
 
 #endif

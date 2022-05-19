@@ -26,17 +26,20 @@ protected:
     Walls *wall21;
     Walls *wall22;
     
+    // Enemy** enemylist;
+    std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
 
-    Enemy *e1;
-    Enemy *e2;
-    Enemy *e3;
-    Enemy *e4;
-    Enemy *e5;
-    Enemy *e6;
-    Enemy *e7;
-    Enemy *e8;
-    Enemy *e9;
-    Enemy *e10;
+
+    // Enemy *e1;
+    // Enemy *e2;
+    // Enemy *e3;
+    // Enemy *e4;
+    // Enemy *e5;
+    // Enemy *e6;
+    // Enemy *e7;
+    // Enemy *e8;
+    // Enemy *e9;
+    // Enemy *e10;
 
     //GameEntity* array[];
 

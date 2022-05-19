@@ -6,8 +6,7 @@
 #include "Game.h"
 #include "Enemy.h"
 
-Game::Game(int x, int y, std::string title)
-{
+Game::Game(int x, int y, std::string title){
 
     // Initialise Game Window
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
@@ -26,43 +25,18 @@ Game::Game(int x, int y, std::string title)
     wall12 = new Walls(5, 108, 192, 486);
     wall22 = new Walls(5, 378, 736, 351);
 
-    // Enemy
-    e1 = new Enemy(1);
-    e2 = new Enemy(2);
-    e3 = new Enemy(3);
-    e4 = new Enemy(4);
-    e5 = new Enemy(5);
-    e6 = new Enemy(6);
-    e7 = new Enemy(7);
-    e8 = new Enemy(8);
-    e9 = new Enemy(9);
-    e10 = new Enemy(10);
 
-    
-   // Game::array[] = {e1,e2,e3,e4,e5};
+    // Enemy    
+    for (int i=0;i<10;i++){
+        Enemy *temp;
+        temp=new Enemy(i);
+        enemylist.push_back(temp);
+
+        gameEntities.push_back(temp);
+    }
+
     gameEntities.push_back(player1);
     gameEntities.push_back(player2);
-    gameEntities.push_back(e1);
-
-    gameEntities.push_back(e2);
-
-    gameEntities.push_back(e3);
-
-    gameEntities.push_back(e4);
-
-    gameEntities.push_back(e5);
-
-    gameEntities.push_back(e6);
-
-    gameEntities.push_back(e7);
-
-    gameEntities.push_back(e8);
-
-    gameEntities.push_back(e9);
-
-    gameEntities.push_back(e10);
-
-    
 }
 
 void Game::run()
@@ -72,9 +46,7 @@ void Game::run()
 
         // handles closing the window manually
         sf::Event e;
-        while (window->pollEvent(e))
-        {
-
+        while (window->pollEvent(e)){
             if (e.type == sf::Event::Closed)
             { // instead of Closed, this can be key pressed, MouseWheelScrolled
                 window->close();
@@ -82,81 +54,37 @@ void Game::run()
             }
         }
 
-        // update function updates all
-        // void update(){
-        //     for (int i =0;i<gameEntities.size();i++){
-        //         GameEntity* current = gameEntities.at(i);
-        //         current->update();
-        //     }
-        // }
-        
-        // Player 1 movement
+        // Player 1 and 2 movement
         player1->inputmove(0);
-
-        
-
-        // Player 2 movement
         player2->inputmove(1);
     
         // Enemy
-        while (window->pollEvent(e)) // collision detection likely affected by this loop (or maybe not idk, currently not super consistent respawn)
-        {
-
-            this->e1->move(0, -1);
-            this->e2->move(0, 1);
-            this->e3->move(0, -1);
-            this->e4->move(0, 1);
-            this->e5->move(0, -1);
-            this->e6->move(0, 1);
-            this->e7->move(0, -1);
-            this->e8->move(0, 1);
-            this->e9->move(0, -1);
-            //this->e10->move(0, 1); // commented for testing purposes
+        while (window->pollEvent(e)){ // collision detection likely affected by this loop (or maybe not idk, currently not super consistent respawn)
+        
+            for (int i=0;i<enemylist.size();i++){
+                
+                this->enemylist[i]->move(0,1+(-2)*(i%2));
+            }
         }
 
-
-        // BASIC UNFINISHED COLLISION DETECTION (will be made into a vector input format)
-        // this->player1->overlaps(e1);
-        // this->player1->overlaps(e2);
-        // this->player1->overlaps(e3);
-        // this->player1->overlaps(e4);
-        // this->player1->overlaps(e5);
-        // this->player1->overlaps(e6);
-        // this->player1->overlaps(e7);
-        // this->player1->overlaps(e8);
-        // this->player1->overlaps(e9);
-        // this->player1->overlaps(e10);
-
-        // DEATH -- respawn player1 if they overlap with an enemy (ofc inefficient rn)
-        this->player1->respawn(100,200,e1);
-        this->player1->respawn(100,200,e2);
-        this->player1->respawn(100,200,e3);
-        this->player1->respawn(100,200,e4);
-        this->player1->respawn(100,200,e5);
-        this->player1->respawn(100,200,e6);
-        this->player1->respawn(100,200,e7);
-        this->player1->respawn(100,200,e8);
-        this->player1->respawn(100,200,e9);
-        this->player1->respawn(100,200,e10);
 
         // update(); // input delta time
 
         window->clear();
 
-        // GameEntity* array[]={player1,player2};
+        for (int i=0;i<enemylist.size();i++){
+                
+            this->player1->respawn(100,200,enemylist[i]);
+            this->player2->respawn(860,200,enemylist[i]);
+        }
 
-        // for (int i=0;i<2;i++){
-        //     array[i]->draw(window);
-        // }
-
+        // Draws Game Entities onto window (players, enemies, walls, etc)
         for (int i =0;i<gameEntities.size();i++){
             gameEntities[i]->draw(window);
         }
 
         // drawing players and walls onto window
 
-        // player1->draw(window);
-        // player2->draw(window);
 
         boundary_top->draw(window);
         boundary_bottom->draw(window);
@@ -166,16 +94,6 @@ void Game::run()
         wall21->draw(window);
         wall12->draw(window);
         wall22->draw(window);
-        e1->draw(window);
-        e2->draw(window);
-        e3->draw(window);
-        e4->draw(window);
-        e5->draw(window);
-        e6->draw(window);
-        e7->draw(window);
-        e8->draw(window);
-        e9->draw(window);
-        e10->draw(window);
 
         window->display();
     }
