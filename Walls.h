@@ -12,7 +12,8 @@ class Walls:public GameEntity{
 
     public:
         Walls(int l,int b, int x, int y);
-        void draw(sf::RenderWindow *window);
+       
+       // void draw(sf::RenderWindow *window);
 
 };
 

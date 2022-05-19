@@ -13,8 +13,8 @@ Walls::Walls(int l,int b, int x, int y){
             std::cout<<"Wall Initialised"<<std::endl;
         }
 
-void Walls::draw(sf::RenderWindow *window){
-            window->draw(*body); 
-            //std::cout<<"drawn!"<<std::endl;
+// void Walls::draw(sf::RenderWindow *window){
+//             window->draw(*body); 
+//             //std::cout<<"drawn!"<<std::endl;
 
-        }
+//         }

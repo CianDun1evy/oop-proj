@@ -11,6 +11,12 @@ void GameEntity::move(int x, int y){
             //std::cout<<"body moved!"<<std::endl;
         }
 
+void GameEntity::draw(sf::RenderWindow *window){
+    window->draw(*body);    
+//std::cout<<"drawn!"<<std::endl;
+
+}
+
 
 
 // OVERLAP DETECTION --> COLLISIONS

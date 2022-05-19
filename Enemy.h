@@ -12,7 +12,7 @@ class Enemy:public GameEntity{
 
     public:
         Enemy(int pos);
-        void draw(sf::RenderWindow *window);    
+
 };
 
 #endif

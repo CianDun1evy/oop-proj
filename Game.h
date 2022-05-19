@@ -13,7 +13,7 @@ class Game : public GameEntity
     // game runs straight from here
 protected:
     sf::RenderWindow *window;
-
+    // set refresh rate for window maybe 60
     Player *player1;
     Player *player2;
     
@@ -26,6 +26,7 @@ protected:
     Walls *wall21;
     Walls *wall22;
     
+
     Enemy *e1;
     Enemy *e2;
     Enemy *e3;
@@ -37,7 +38,9 @@ protected:
     Enemy *e9;
     Enemy *e10;
 
-    //std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
+    //GameEntity* array[];
+
+    std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
 
     // or, as behaviour is different based on which collision happens
 
@@ -53,3 +56,5 @@ public:
 
 };
 #endif
+
+// Hi

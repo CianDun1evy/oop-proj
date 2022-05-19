@@ -38,7 +38,31 @@ Game::Game(int x, int y, std::string title)
     e9 = new Enemy(9);
     e10 = new Enemy(10);
 
-    // gameEntities.push_back(player);
+    
+   // Game::array[] = {e1,e2,e3,e4,e5};
+    gameEntities.push_back(player1);
+    gameEntities.push_back(player2);
+    gameEntities.push_back(e1);
+
+    gameEntities.push_back(e2);
+
+    gameEntities.push_back(e3);
+
+    gameEntities.push_back(e4);
+
+    gameEntities.push_back(e5);
+
+    gameEntities.push_back(e6);
+
+    gameEntities.push_back(e7);
+
+    gameEntities.push_back(e8);
+
+    gameEntities.push_back(e9);
+
+    gameEntities.push_back(e10);
+
+    
 }
 
 void Game::run()
@@ -69,6 +93,7 @@ void Game::run()
         // Player 1 movement
         player1->inputmove(0);
 
+        
 
         // Player 2 movement
         player2->inputmove(1);
@@ -118,9 +143,21 @@ void Game::run()
 
         window->clear();
 
+        // GameEntity* array[]={player1,player2};
+
+        // for (int i=0;i<2;i++){
+        //     array[i]->draw(window);
+        // }
+
+        for (int i =0;i<gameEntities.size();i++){
+            gameEntities[i]->draw(window);
+        }
+
         // drawing players and walls onto window
-        player1->draw(window);
-        player2->draw(window);
+
+        // player1->draw(window);
+        // player2->draw(window);
+
         boundary_top->draw(window);
         boundary_bottom->draw(window);
         boundary_left->draw(window);
