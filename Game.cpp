@@ -13,7 +13,7 @@ Game::Game(int x, int y, std::string title)
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
 
     // Initialise Players
-    player1 = new Player(20, 96, 54, sf::Color::Green);
+    player1 = new Player(20, 96, 54, sf::Color::Red);
     player2 = new Player(20, 864, 486, sf::Color::Cyan);
 
     // Initialise Walls

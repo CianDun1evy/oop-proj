@@ -17,7 +17,7 @@ Enemy::Enemy(int pos) {
     // this->body = new sf::CircleShape(sf::Vector2f(40,40));
     this->body->setOrigin(sf::Vector2f(10,10));
     this->body->setPosition(sf::Vector2f(x,y));
-    this->body->setFillColor(sf::Color::Red);
+    this->body->setFillColor(sf::Color::Blue);
     std::cout<<"enemy initialised"<<std::endl;
 }
 
