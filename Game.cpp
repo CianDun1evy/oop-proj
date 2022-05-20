@@ -11,11 +11,11 @@ Game::Game(int x, int y, std::string title){
     // Initialise Game Window
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
 
-    // Initialise Players
-    player1 = new Player(20, 96, 54, sf::Color::Red);
-    player2 = new Player(20, 864, 486, sf::Color::Cyan);
+    // Initialise Players - probs only do 1 player (or have that as user input in menu, choose either 1 or two players)
+    player1 = new Player(20, 100, 200, sf::Color::Red);
+    player2 = new Player(20, 150, 200, sf::Color::Cyan);
 
-    // Initialise Walls
+    // Initialise Walls - this can be done with a vector, like 
     boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
     boundary_bottom = new Walls(960, 15, 960 / 2, 540 - 15 / 2);
     boundary_left = new Walls(15, 540, 15 / 2, 540 / 2);
@@ -59,12 +59,17 @@ void Game::run()
         player2->inputmove(1);
     
         // Enemy
-        while (window->pollEvent(e)){ // collision detection likely affected by this loop (or maybe not idk, currently not super consistent respawn)
-        
-            for (int i=0;i<enemylist.size();i++){
-                
-                this->enemylist[i]->move(0,1+(-2)*(i%2));
-            }
+
+        for (int i=0;i<enemylist.size()-4;i++){
+            this->enemylist[i]->move(0,0.05+(-0.1)*(i%2));
+
+           // this->enemylist[i]->move(0.05+(-0.05)*(i%2),0);
+        }
+    
+        for (int i=enemylist.size()-4;i<enemylist.size();i++){
+            this->enemylist[i]->move(0.05+(-0.1)*(i%2),0);
+
+           // this->enemylist[i]->move(0.05+(-0.05)*(i%2),0);
         }
 
 
@@ -75,7 +80,7 @@ void Game::run()
         for (int i=0;i<enemylist.size();i++){
                 
             this->player1->respawn(100,200,enemylist[i]);
-            this->player2->respawn(860,200,enemylist[i]);
+            this->player2->respawn(150,200,enemylist[i]);
         }
 
         // Draws Game Entities onto window (players, enemies, walls, etc)

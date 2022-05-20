@@ -5,7 +5,7 @@
 #include "Game.h"
 
 
-void GameEntity::move(int x, int y){ 
+void GameEntity::move(float x, float y){ 
             // could make this look more complex
             this->body->move(x,y);
             //std::cout<<"body moved!"<<std::endl;
@@ -60,7 +60,7 @@ bool GameEntity::overlaps(GameEntity* _enemy){ // this should then become a vect
     if (pxmin<=epose.x && epose.x<=pxmax && (pymin<=epose.y && epose.y<=pymax)){
         
         std::cout<<"COLLISION!!!"<<std::endl;
-        _enemy->body->setFillColor(sf::Color::Green);
+        //_enemy->body->setFillColor(sf::Color::Green);
         return 1;
     }
     

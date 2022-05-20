@@ -18,10 +18,10 @@ as:
 
 # makefiles to use
 ohg1:
-	g++ OHG.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -I/usr/local/Cellar/sfml/2.5.1_1/include/  -o t -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
+	clang++ -Wall OHG.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -I/usr/local/Cellar/sfml/2.5.1_1/include/  -o t -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
 ohg:
-		g++ OHG.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -o t  -lsfml-graphics -lsfml-window -lsfml-system
+	clang++ -Wall OHG.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -o t  -lsfml-graphics -lsfml-window -lsfml-system
 
 
 clean:

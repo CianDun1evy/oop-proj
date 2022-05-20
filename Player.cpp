@@ -31,7 +31,7 @@ void Player::inputmove(int a){
         u = sf::Keyboard::W;
         d = sf::Keyboard::S;
     }
-    else if (a==1){
+    else{
         l = sf::Keyboard::Left;
         r = sf::Keyboard::Right;
         u = sf::Keyboard::Up;

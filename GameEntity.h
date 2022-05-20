@@ -17,7 +17,7 @@ protected:
 
     // sf::RectangleShape* body; // okay so having a body doesn't work either
 public:
-    void move(int x, int y);
+    void move(float x, float y);
 
     void draw(sf::RenderWindow *window);
 
