@@ -13,7 +13,7 @@ Game::Game(int x, int y, std::string title){
 
     // Initialise Players - probs only do 1 player (or have that as user input in menu, choose either 1 or two players)
     player1 = new Player(20, 100, 200, sf::Color::Red);
-    player2 = new Player(20, 150, 200, sf::Color::Cyan);
+   player2 = new Player(20, 150, 200, sf::Color::Cyan);
 
     // Initialise Walls - this can be done with a vector, like 
     boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
@@ -56,20 +56,15 @@ void Game::run()
 
         // Player 1 and 2 movement
         player1->inputmove(0);
-        player2->inputmove(1);
+       player2->inputmove(1);
     
-        // Enemy
+        // ENEMY AUTONOMOUS MOVEMENT:
 
         for (int i=0;i<enemylist.size()-4;i++){
-            this->enemylist[i]->move(0,0.05+(-0.1)*(i%2));
-
-           // this->enemylist[i]->move(0.05+(-0.05)*(i%2),0);
+            this->enemylist[i]->move(0,0.01+(-0.1)*(i%2));
         }
-    
-        for (int i=enemylist.size()-4;i<enemylist.size();i++){
+        for (int i=enemylist.size()-4;i<enemylist.size()-1;i++){
             this->enemylist[i]->move(0.05+(-0.1)*(i%2),0);
-
-           // this->enemylist[i]->move(0.05+(-0.05)*(i%2),0);
         }
 
 
@@ -77,11 +72,14 @@ void Game::run()
 
         window->clear();
 
+        // RESPAWN UPON COLLISION WITH ENEMIES AND WALLS
         for (int i=0;i<enemylist.size();i++){
                 
             this->player1->respawn(100,200,enemylist[i]);
             this->player2->respawn(150,200,enemylist[i]);
         }
+        this->player1->respawn(100,200,wall11);
+        this->player2->respawn(150,200,wall11);
 
         // Draws Game Entities onto window (players, enemies, walls, etc)
         for (int i =0;i<gameEntities.size();i++){

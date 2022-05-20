@@ -4,16 +4,20 @@
 #include "Player.h"
 #include "Game.h"
 
-Player::Player(int size, int x, int y,sf::Color colour){
-            body = new sf::RectangleShape(sf::Vector2f(size,size));
-            body->setOrigin(sf::Vector2f(size/2,size/2));
-            body->setPosition(sf::Vector2f(x,y));
-            body->setFillColor(colour);
-            std::cout<<"player initialised"<<std::endl;
+Player::Player(int psize, int x, int y,sf::Color colour){
+
+     // store the size of the player
+    this->size = sf::Vector2f(psize,psize);
+
+    body = new sf::RectangleShape(sf::Vector2f(psize,psize));
+    body->setOrigin(sf::Vector2f(psize/2,psize/2));
+    body->setPosition(sf::Vector2f(x,y));
+    body->setFillColor(colour);
+    std::cout<<"player initialised"<<std::endl;
 }
 
 
-void Player::respawn(int x,int y,Enemy* _enemy){
+void Player::respawn(int x,int y,GameEntity* _enemy){
     // if a player overlaps with an enemy (overlaps must take vector containing enemies as input)
     if(this->overlaps(_enemy)==1){
         this->body->setPosition(x,y);
@@ -40,16 +44,16 @@ void Player::inputmove(int a){
 
     // move player based on user input
     if (sf::Keyboard::isKeyPressed(l)){
-        this->move(-1,0);
+        this->move(-.5,0);
     }
     if (sf::Keyboard::isKeyPressed(r)){
-        this->move(1,0);
+        this->move(.5,0);
     }
     if (sf::Keyboard::isKeyPressed(u)){
-        this->move(0,-1);
+        this->move(0,-.5);
     }
     if (sf::Keyboard::isKeyPressed(d)){
-        this->move(0,1);
+        this->move(0,.5);
     }
 }
 

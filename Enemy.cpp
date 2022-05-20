@@ -14,6 +14,9 @@ Enemy::Enemy(int pos) {
 
     this->body = new sf::CircleShape(10.f);
 
+    // store the size of the enemy
+    this->size = sf::Vector2f(2*10,2*10);
+
     // this->body = new sf::CircleShape(sf::Vector2f(40,40));
     this->body->setOrigin(sf::Vector2f(10,10));
     this->body->setPosition(sf::Vector2f(x,y));

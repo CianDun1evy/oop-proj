@@ -8,6 +8,7 @@
 class GameEntity{
 protected:
     sf::Shape *body;
+    sf::Vector2f size;
 
     // put size values for the shape in here, so i guess:
     // set these vals to whatever it is when you initialise in each constructor
