@@ -25,8 +25,9 @@ Game::Game(int x, int y, std::string title){
     wall12 = new Walls(5, 108, 192, 486);
     wall22 = new Walls(5, 378, 736, 351);
 
+    
 
-    // Enemy    
+    // Enemy INITIALISATION   
     for (int i=0;i<10;i++){
         Enemy *temp;
         temp=new Enemy(i);
@@ -34,6 +35,16 @@ Game::Game(int x, int y, std::string title){
 
         gameEntities.push_back(temp);
     }
+
+    // WALL INITIALISATION
+    // for (int i=0;i<10;i++){
+    //     Walls *temp;
+    //     temp=new Enemy(array[i][0],array[i][1],array[i][2],array[i][3]);
+    //     enemylist.push_back(temp);
+
+    //     gameEntities.push_back(temp);
+    // }
+
 
     gameEntities.push_back(player1);
     gameEntities.push_back(player2);

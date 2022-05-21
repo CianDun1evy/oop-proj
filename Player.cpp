@@ -2,7 +2,7 @@
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
-#include "Game.h"
+
 
 Player::Player(int psize, int x, int y,sf::Color colour){
 
