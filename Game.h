@@ -1,6 +1,7 @@
 
 #ifndef GAME_H
 #define GAME_H
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
@@ -8,7 +9,7 @@
 #include "Walls.h"
 #include "Enemy.h"
 #include<fstream>
-
+#include<vector>
 
 class Game : public GameEntity 
 {
@@ -22,7 +23,11 @@ protected:
     
     // List of Walls
     std::vector<Walls *> wall_list;
-    float WallPos[8][4]; // data for 10 enemies with the 4 Constructor parameters to be stored
+
+    float WallPos[8][4]; // data for 8 enemies with the 4 Constructor parameters to be stored
+
+    // std::vector<std::vector<float> > WallPos;
+    
 
     // List of Enemies
     std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
@@ -36,6 +41,7 @@ public:
     void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
 
     void run();
+    
     ~Game();
 
 };
