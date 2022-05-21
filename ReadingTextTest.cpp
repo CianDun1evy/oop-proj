@@ -12,6 +12,7 @@ int main(){
     //Opening the file
     std::ifstream inputfile(posfile);
     
+    // check if file exists, or if it is usable
     if (!inputfile.is_open()){
 
         std::cout<<"There was an error opening file"<<std::endl;
@@ -23,21 +24,22 @@ int main(){
             }
         }
     }
-
-    //Defining the loop for getting input from the file
     
-    for (int r = 0; r < row; r++){ //Outer loop for rows
-        for (int c = 0; c < col; c++){ //inner loop for columns
-          inputfile >> WallPos[r][c];  //Take input from file and put into WallPos
+    // get input from file into Wall if no errors 
+    for (int i=0;i<row;i++){
+        for (int j=0;j<col;j++){
+            inputfile >> WallPos[i][j];  //Take input from file and put into WallPos
         }
+    }
+    
+    for (int i=0;i<row;i++){
+        for (int j=0;j<col;j++){
+            std::cout<< WallPos[i][j]<<" ";
+        }
+        std::cout<<std::endl;
     }
 
-    for (int r = 0; r < row; r++){
-        for (int c = 0; c < col; c++){
-            std::cout << WallPos[r][c] << "\t";
-        }
-       std:: cout<<std::endl;
-    }
+  
 
     return 0;
 }

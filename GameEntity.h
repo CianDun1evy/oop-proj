@@ -22,7 +22,7 @@ public:
 
     void draw(sf::RenderWindow *window);
 
-    virtual void update()=0;
+    //virtual void update()=0;
 
     bool overlaps(GameEntity *_enemy); // std::vector<GameEntity *> gameEntities; // that should be input
 

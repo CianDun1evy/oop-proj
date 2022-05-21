@@ -8,13 +8,15 @@
 
 class Walls:public GameEntity{
     protected:
-        // nothing here yet
+        
+        // int WallPos[10][4]; // data for 10 enemies with the 4 Constructor parameters to be stored
+
 
     public:
-        Walls(int l,int b, int x, int y);
-       
-       // void draw(sf::RenderWindow *window);
+        Walls(int length,int breadth, int x, int y);
 
+        // void getWallPositions(int row, int col,std::string positionfile); // maybe have WallsPos more ambiguous
+    //   ~Walls();
 };
 
 

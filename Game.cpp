@@ -13,17 +13,17 @@ Game::Game(int x, int y, std::string title){
 
     // Initialise Players - probs only do 1 player (or have that as user input in menu, choose either 1 or two players)
     player1 = new Player(20, 100, 200, sf::Color::Red);
-   player2 = new Player(20, 150, 200, sf::Color::Cyan);
+    player2 = new Player(20, 150, 200, sf::Color::Cyan);
 
     // Initialise Walls - this can be done with a vector, like 
-    boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
-    boundary_bottom = new Walls(960, 15, 960 / 2, 540 - 15 / 2);
-    boundary_left = new Walls(15, 540, 15 / 2, 540 / 2);
-    boundary_right = new Walls(15, 540, 960 - 15 / 2, 540 / 2);
-    wall11 = new Walls(5, 378, 192, 378 / 2);
-    wall21 = new Walls(5, 108, 736, 108 / 2);
-    wall12 = new Walls(5, 108, 192, 486);
-    wall22 = new Walls(5, 378, 736, 351);
+    // boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
+    // boundary_bottom = new Walls(960, 15, 960 / 2, 540 - 15 / 2);
+    // boundary_left = new Walls(15, 540, 15 / 2, 540 / 2);
+    // boundary_right = new Walls(15, 540, 960 - 15 / 2, 540 / 2);
+    // wall11 = new Walls(5, 378, 192, 378 / 2);
+    // wall21 = new Walls(5, 108, 736, 108 / 2);
+    // wall12 = new Walls(5, 108, 192, 486);
+    // wall22 = new Walls(5, 378, 736, 351);
 
     
 
@@ -37,18 +37,60 @@ Game::Game(int x, int y, std::string title){
     }
 
     // WALL INITIALISATION
-    // for (int i=0;i<10;i++){
-    //     Walls *temp;
-    //     temp=new Enemy(array[i][0],array[i][1],array[i][2],array[i][3]);
-    //     enemylist.push_back(temp);
+    this->setWallPositionsData(8,4,"WallPos.txt");
+    //this->WallPos[];
+    
+    for (int i=0;i<8;i++){
+        Walls *temp1;
+        temp1 = new Walls(WallPos[i][0],WallPos[i][1],WallPos[i][2],WallPos[i][3]);
+        wall_list.push_back(temp1);
 
-    //     gameEntities.push_back(temp);
-    // }
-
+        gameEntities.push_back(temp1);
+    }
 
     gameEntities.push_back(player1);
     gameEntities.push_back(player2);
 }
+
+
+
+void Game::setWallPositionsData(int row,int col,std::string posfile){
+
+    // import file 
+    std::ifstream inputfile(posfile);
+    
+    // check if file exists, or if it is usable
+    if (!inputfile.is_open()){
+
+        std::cout<<"There was an error opening file"<<std::endl;
+        
+        // if error, set all values to 0;
+        for (int i=0;i<row;i++){
+            for (int j=0;j<4;j++){ 
+                WallPos[i][j]=0;
+            }
+        }
+    }
+    
+    // get input from file into Wall if no errors 
+    for (int i=0;i<row;i++){
+        for (int j=0;j<col;j++){
+            inputfile >> WallPos[i][j];  //Take input from file and put into WallPos
+        }
+    }
+    
+    for (int i=0;i<row;i++){
+        for (int j=0;j<col;j++){
+            std::cout<< WallPos[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+}
+
+
+
+
+
 
 void Game::run()
 {
@@ -67,7 +109,7 @@ void Game::run()
 
         // Player 1 and 2 movement
         player1->inputmove(0);
-       player2->inputmove(1);
+        player2->inputmove(1);
     
         // ENEMY AUTONOMOUS MOVEMENT:
 
@@ -89,8 +131,8 @@ void Game::run()
             this->player1->respawn(100,200,enemylist[i]);
             this->player2->respawn(150,200,enemylist[i]);
         }
-        this->player1->respawn(100,200,wall11);
-        this->player2->respawn(150,200,wall11);
+        // this->player1->respawn(100,200,wall11);
+        // this->player2->respawn(150,200,wall11);
 
         // Draws Game Entities onto window (players, enemies, walls, etc)
         for (int i =0;i<gameEntities.size();i++){
@@ -100,14 +142,14 @@ void Game::run()
         // drawing players and walls onto window
 
 
-        boundary_top->draw(window);
-        boundary_bottom->draw(window);
-        boundary_left->draw(window);
-        boundary_right->draw(window);
-        wall11->draw(window);
-        wall21->draw(window);
-        wall12->draw(window);
-        wall22->draw(window);
+        // boundary_top->draw(window);
+        // boundary_bottom->draw(window);
+        // boundary_left->draw(window);
+        // boundary_right->draw(window);
+        // wall11->draw(window);
+        // wall21->draw(window);
+        // wall12->draw(window);
+        // wall22->draw(window);
 
         window->display();
     }
