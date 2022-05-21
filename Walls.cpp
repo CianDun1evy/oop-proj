@@ -8,7 +8,7 @@
 
 #include "Walls.h"
 
-Walls::Walls(int length,int breadth, int x, int y){
+Walls::Walls(float length,float breadth, int x, int y){
 
     // store the size of the wall
     this->size = sf::Vector2f(length,breadth);
@@ -18,7 +18,7 @@ Walls::Walls(int length,int breadth, int x, int y){
     body->setPosition(sf::Vector2f(x,y));
     body->setFillColor(sf::Color::White);
     std::cout<<"Wall Initialised"<<std::endl;
-        }
+}
 
 
 // void Walls::getWallPositions(int row,int col,std::string posfile){

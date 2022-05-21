@@ -13,7 +13,7 @@ class Walls:public GameEntity{
 
 
     public:
-        Walls(int length,int breadth, int x, int y);
+        Walls(float length,float breadth, int x, int y);
 
         // void getWallPositions(int row, int col,std::string positionfile); // maybe have WallsPos more ambiguous
     //   ~Walls();

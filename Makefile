@@ -4,7 +4,7 @@ all: ohg1
 test: 
 	g++ sfml.cpp -I/usr/local/Cellar/sfml/2.5.1_1/include/  -o test -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-readtext:
+intest:
 	g++ ReadingTextTest.cpp -o t
 
 # makefiles to use

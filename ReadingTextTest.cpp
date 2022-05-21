@@ -2,11 +2,11 @@
 #include<fstream>
 
 int main(){   
-    int row = 4; // Number of Walls
+    int row = 8; // Number of Walls
     int col = 4; // number of parameter required for Wall Initialisation
 
 
-    int WallPos[row][col];
+    float WallPos[row][col];
     std::string posfile = "WallPos.txt";
 
     //Opening the file
@@ -43,3 +43,4 @@ int main(){
 
     return 0;
 }
+

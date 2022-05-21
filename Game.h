@@ -28,7 +28,7 @@ protected:
     
     // List of Walls
     std::vector<Walls *> wall_list;
-    int WallPos[10][4]; // data for 10 enemies with the 4 Constructor parameters to be stored
+    float WallPos[8][4]; // data for 10 enemies with the 4 Constructor parameters to be stored
 
     // List of Enemies
     std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
@@ -57,7 +57,7 @@ protected:
 public:
     Game(int x, int y, std::string title);
 
-    void setWallPositionsData(int numWalls, int parameters,std::string positionfile); // maybe have WallsPos more ambiguous
+    void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
 
     void run();
     //~Game(){}
