@@ -209,7 +209,7 @@ void Game::welcome()
             }
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         {
             // this->move(-.5,0);
             break;
@@ -249,9 +249,9 @@ void Game::welcome()
 
         sf::Text quit;
         quit.setFont(gothic);
-        quit.setString("BACKSPACE-Quit!!");
+        quit.setString("Q-Quit!!");
         quit.setCharacterSize(15);
-        quit.setPosition(750, 50);
+        quit.setPosition(800, 50);
         quit.setFillColor(sf::Color::Red);
 
         window->clear();
@@ -290,7 +290,7 @@ void Game::no_of_players() {
             this->run(2);
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         {
             break;
         }
@@ -317,9 +317,9 @@ void Game::no_of_players() {
 
         sf::Text quit;
         quit.setFont(gothic);
-        quit.setString("BACKSPACE-Quit!!");
+        quit.setString("Q-Quit!!");
         quit.setCharacterSize(15);
-        quit.setPosition(750, 50);
+        quit.setPosition(800, 50);
         quit.setFillColor(sf::Color::Red);
 
         window->clear();
