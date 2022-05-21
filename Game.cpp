@@ -8,7 +8,7 @@
 #include "Walls.h"
 
 Game::Game(int x, int y, std::string title){
-
+    
     // Initialise Game Window
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
 
@@ -26,7 +26,17 @@ Game::Game(int x, int y, std::string title){
 
         gameEntities.push_back(temp);
     }
+    
 
+Game::~Game(){
+    delete [] player1;
+    delete [] player2;
+    delete [] wall_list;
+    delete [] enemylist;
+    delete []
+}
+    
+}
     // WALL INITIALISATION
 
       // boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
@@ -50,6 +60,7 @@ Game::Game(int x, int y, std::string title){
         wall_list.push_back(temp1);
         gameEntities.push_back(temp1);
     }
+
 }
 
 
