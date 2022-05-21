@@ -39,9 +39,12 @@ public:
     Game(int x, int y, std::string title);
 
     void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
-
-    void run();
-    
+    void menu();
+    void welcome();
+    void no_of_players();
+    void controls();
+    void run(int players);
+    void result();
     ~Game();
 
 };

@@ -36,8 +36,8 @@ bool GameEntity::overlaps(GameEntity* entity){ // this should then become a vect
 
     sf::Vector2f entsize = entity->size;
     // trying aabb collision 
-    if ( abs(p1pose.x - epose.x) < ((this->size.x+entsize.x)/2)){ // 10 + 10 -> player->getSize().x + enemy->getSize().x
-        if ( abs(p1pose.y - epose.y) < ((this->size.y+entsize.y)/2)){
+    if ( std::abs(p1pose.x - epose.x) < ((this->size.x+entsize.x)/2)){ // 10 + 10 -> player->getSize().x + enemy->getSize().x
+        if ( std::abs(p1pose.y - epose.y) < ((this->size.y+entsize.y)/2)){
 
             std::cout<<"COLLISION!!!"<<std::endl;
 

@@ -15,7 +15,8 @@
 int main(){
     Game GAM(960, 540,"daddy");
     
-    GAM.run();
-    
+    GAM.welcome();
+    //GAM.run();
+    //GAM.result();
     return 0;
 }
