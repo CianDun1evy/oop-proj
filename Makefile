@@ -1,8 +1,8 @@
 
 LIB1 = -I/usr/local/Cellar/sfml/2.5.1_1/include/
 LIB2 = -L/usr/local/Cellar/sfml/2.5.1_1/lib
-SFML = -lsfml-graphics -lsfml-window -lsfml-system
-debug = -fsanitize=address -Wall -Werror
+SFML = -lsfml-graphics -lsfml-window -lsfml-system 
+debug = --std=c++17 -fsanitize=address -Wall -Werror
 
 all: project1 intest
 
