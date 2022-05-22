@@ -282,7 +282,9 @@ void Game::welcome()
             std::cout<<"moving to num players!"<<std::endl;
             this->no_of_players();
         }
-        std::cout<<"checked if wanted to go to num players"<<std::endl;
+
+
+        std::cout<<"welcome - after check to go to numplayers"<<std::endl;
 
         // std::string wel="welcome";
         // // Welcome text

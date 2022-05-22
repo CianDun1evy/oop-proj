@@ -44,16 +44,16 @@ void Player::inputmove(int a){
 
     // move player based on user input
     if (sf::Keyboard::isKeyPressed(l)){
-        this->move(-.5,0);
+        this->move(-2,0);
     }
     if (sf::Keyboard::isKeyPressed(r)){
-        this->move(.5,0);
+        this->move(2,0);
     }
     if (sf::Keyboard::isKeyPressed(u)){
-        this->move(0,-.5);
+        this->move(0,-2);
     }
     if (sf::Keyboard::isKeyPressed(d)){
-        this->move(0,.5);
+        this->move(0,2);
     }
 }
 
