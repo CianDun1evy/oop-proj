@@ -18,20 +18,18 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     window->setFramerateLimit(60);
 
     // Initialise Players - probs only do 1 player (or have that as user input in menu, choose either 1 or two players)
-    player1 = new Player(20, 100, 200, sf::Color::Red);
+    this->numPlayers = 1;
+    player1 = new Player(20, 100, 200, sf::Color::Red,0);
 
     gameEntities.push_back(player1);
 
-    player_list.push_back(player1);
-    this->numPlayers = 1;
 
-    // player2 = new Player(20, 150, 200, sf::Color::Cyan);
 
     // Enemy INITIALISATION   
     for (int i=0;i<10;i++){
         Enemy *temp;
         temp = new Enemy(i);
-        enemylist.push_back(temp);
+        // enemylist.push_back(temp);
 
         gameEntities.push_back(temp);
     }   
@@ -44,8 +42,6 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     for (int i=0;i<8;i++){
         Walls *temp1;
         temp1 = new Walls(WallPos[i][0],WallPos[i][1],WallPos[i][2],WallPos[i][3]);
-        //temp1 = new Walls(10,10,10,10);
-        wall_list.push_back(temp1);
         gameEntities.push_back(temp1);
        // std::cout<<"oki doki again "<<std::endl;
     }
@@ -70,9 +66,9 @@ void OHG_Game::run(){
     std::cout<<"started running game"<<std::endl;
 
     if (this->numPlayers == 2){
-            player2 = new Player(20, 150, 200, sf::Color::Cyan);
+            player2 = new Player(20, 150, 200, sf::Color::Cyan,1);
             gameEntities.push_back(player2);
-            player_list.push_back(player2);
+            // player_list.push_back(player2); // cOMMENTED
     }
 
     while (window->isOpen()){
@@ -86,66 +82,20 @@ void OHG_Game::run(){
                 std::cout << "window closed" << std::endl;
             }
         }
-         std::cout<<"checked window closed"<<std::endl;
+        std::cout<<"checked window closed"<<std::endl;
 
-
-        
-        
-        // Player Movements
-        for (int i =0;i<player_list.size();i++){
-            player_list[i]->inputmove(i);
-        }
-        // player1->inputmove(0);
-        // player2->inputmove(1);
         std::cout<<"players can move"<<std::endl;
-
-
-        // ENEMY AUTONOMOUS MOVEMENT:
-        for (int i=0;i<enemylist.size()-4;i++){
-            this->enemylist[i]->move(0,0.01+(-0.1)*(i%2));
-        }
-        for (int i=enemylist.size()-4;i<enemylist.size()-1;i++){
-            this->enemylist[i]->move(0.05+(-0.1)*(i%2),0);
-        }
-        std::cout<<"enemies move"<<std::endl;
-
-
 
         // update(); // input delta time
 
         window->clear();
 
-        std::cout<<"window cleared"<<std::endl;
 
-        // RESPAWN UPON COLLISION WITH ENEMIES AND WALLS
-        for (int i=0;i<enemylist.size();i++){
-            // respawn if touch enemy or wall
 
-            std::cout<<"respawn loop:"<<std::endl;
-
-            for (int j =0;j<player_list.size();j++){
-                player_list[j]->respawn((100+50*j),200,enemylist[i]);
-            }
-            // this->player1->respawn(100,200,enemylist[i]);
-
-            // this->player2->respawn(150,200,enemylist[i]);
+        for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
+            gameEntities[i]->update(&gameEntities);
         }
-        std::cout<<"touching enemies kills"<<std::endl;
-        
-        for (int i=0;i<wall_list.size();i++){
-            // respawn if touch enemy or wall
-
-            for (int j=0;j<player_list.size();j++){
-
-                this->player_list[j]->respawn(100+50*j,200,wall_list[i]);
-            }
-            // this->player1->respawn(100,200,wall_list[i]);
-
-            // this->player2->respawn(150,200,wall_list[i]);
-        }
-        std::cout<<"touching walls kills"<<std::endl;
-
-
+        std::cout<<"game entities updated"<<std::endl;
 
         // Draws Game Entities onto window (players, enemies, walls, etc)
         for (int i =0;i<gameEntities.size();i++){
@@ -153,7 +103,7 @@ void OHG_Game::run(){
         }
         std::cout<<"game entities drawn"<<std::endl;
 
-        // drawing players and walls onto window
+        // drawing Game Entities in 
         window->display();
     }
 }

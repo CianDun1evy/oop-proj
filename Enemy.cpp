@@ -23,8 +23,15 @@ Enemy::Enemy(int pos) {
     std::cout<<"enemy initialised"<<std::endl;
 }
 
+std::string Enemy::getType(){
+    return "Enemy";
+}
+void Enemy::update(std::vector <GameEntity *>* gameEnts){
+
+    // moving around autonomously 
+
+}
 // void Enemy::draw(sf::RenderWindow *window){
 //     window->draw(*body);    
-//std::cout<<"drawn!"<<std::endl;
-
-//}
+//     std::cout<<"drawn!"<<std::endl;
+// }

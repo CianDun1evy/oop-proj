@@ -19,6 +19,15 @@ Walls::Walls(float length,float breadth, int x, int y){
     std::cout<<"Wall Initialised"<<std::endl;
 }
 
+std::string Walls::getType(){
+    return "Wall";
+}
+
+void Walls::update(std::vector <GameEntity *>* gameEnts){
+
+}
+
+
 
 // void Walls::getWallPositions(int row,int col,std::string posfile){
 

@@ -24,13 +24,13 @@ protected:
     Player *player1;
     Player *player2;
     
-    std::vector<Player *> player_list;
+    // std::vector<Player *> player_list;
 
     int numPlayers; // numPlayers
     
     
     // List of Walls
-    std::vector<Walls *> wall_list;
+    // std::vector<Walls *> wall_list;
 
     float WallPos[8][4]; // data for 8 enemies with the 4 Constructor parameters to be stored
 
@@ -38,7 +38,7 @@ protected:
     
 
     // List of Enemies
-    std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
+    // std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
 
     // List of Game Entities
     std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection

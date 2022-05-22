@@ -26,3 +26,18 @@ int main(){
     return 0;
 
 }
+
+
+GameEntity:
+virtual void move(float , float ){}
+
+
+Enemy:
+void move(float a, float b){
+    // while enemy >12121
+    // getCoordinates 
+    int arr[][] = getEnemyCoords();
+    
+    this->enemy->move(1,1);
+
+}

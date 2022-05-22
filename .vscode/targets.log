@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'OHG_Game.o', needed by 'project1'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 22 19:12:44 2022
+# Make data base, printed on Mon May 23 00:02:57 2022
 
 # Variables
 
@@ -27,13 +29,13 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /home/cian/uni/oop-proj
+CURDIR := /home/cian/uni/oop-project/oop-proj
 # makefile
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/cian/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/node
+_ = /home/cian/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # 'override' directive
@@ -49,7 +51,7 @@ VSCODE_CWD = /mnt/c/Users/ciand/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/cian/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/MATLAB/R2022a/runtime/win64:/mnt/c/Program Files/MATLAB/R2022a/bin:/mnt/c/Users/ciand/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ciand/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+PATH = /home/cian/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/MATLAB/R2022a/runtime/win64:/mnt/c/Program Files/MATLAB/R2022a/bin:/mnt/c/Users/ciand/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ciand/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
 # makefile (from 'Makefile', line 4)
 SFML = -lsfml-graphics -lsfml-window -lsfml-system
 # environment
@@ -59,9 +61,9 @@ debug = -fsanitize=address -Wall -Werror
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-6598dd1c-2d09-4faa-917c-b7b46918713d.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-ca7502da-bc65-47eb-9acd-bb02f3edc192.sock
 # environment
-VSCODE_SERVER_TAR = /mnt/c/Users/ciand/AppData/Local/Temp/vscode-remote-wsl/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/vscode-server-stable-linux-x64.tar.gz
+VSCODE_SERVER_TAR = /mnt/c/Users/ciand/AppData/Local/Temp/vscode-remote-wsl/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/vscode-server-stable-linux-x64.tar.gz
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,14 +73,13 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 DISPLAY = :0
 # environment
- 
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/cian/uni/oop-proj
+PWD = /home/cian/uni/oop-project/oop-proj
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/21401_interop
+WSL_INTEROP = /run/WSL/4507_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # makefile (from 'Makefile', line 2)
@@ -92,7 +93,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = cian
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -164,7 +165,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=76/1024=7%, Rehash=0, Collisions=4/106=4%
+# Load=76/1024=7%, Rehash=0, Collisions=4/101=4%
 
 # Pattern-specific Variable Values
 
@@ -172,9 +173,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 10964): 34 files, no impossibilities.
+# . (device 2080, inode 53389): 27 files, no impossibilities.
 
-# 34 files, no impossibilities in 1 directories.
+# 27 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -191,51 +192,45 @@ intest:
 
 # Not a target:
 Enemy.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:23.289967614
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: project1 intest
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  File has not been updated.
 
 # Not a target:
 Walls.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:22.989967614
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 GameEntity.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:23.579967614
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-project: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o GenericGame.o
+project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 18):
-	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o GenericGame.o $(LIB1) -o t $(LIB2) $(SFML)
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o  $(LIB1) -o t $(LIB2) $(SFML)
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
+OHG_Game.o:
+#  Implicit rule search has been done.
+#  File does not exist.
 #  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:11.779967623
+#  Last modified 2022-05-22 22:08:49.4479835
 #  File has been updated.
 #  Successfully updated.
 
@@ -246,37 +241,17 @@ test:
 #  recipe to execute (from 'Makefile', line 11):
 	g++ sfml.cpp -o test -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-project1: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
+project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := project1
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
-# automatic
-# | := 
-# automatic
-# < := main.cpp
-# automatic
-# ^ := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
-# automatic
-# ? := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 21):
-	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 18:36:00.17996935
+#  Last modified 2022-05-22 23:45:13.6380506
 #  File has been updated.
 #  Successfully updated.
 
@@ -286,13 +261,6 @@ main.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-Game.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:22.419967615
-#  File has been updated.
-#  Successfully updated.
-
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -301,32 +269,26 @@ clean:
 	rm t test1 *.o proj
 
 # Not a target:
-GenericGame.o:
+Player.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-Player.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 19:12:22.689967615
-#  File has been updated.
-#  Successfully updated.
-
 # files hash-table stats:
-# Load=16/1024=2%, Rehash=0, Collisions=0/45=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
+ 
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 456 B / avg = 10 B
-# current buf: size = 8162 B / used = 456 B / count = 45 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 42 / storage = 446 B / avg = 10 B
+# current buf: size = 8162 B / used = 446 B / count = 42 / avg = 10 B
 
-# strcache performance: lookups = 71 / hit rate = 36%
+# strcache performance: lookups = 62 / hit rate = 32%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=1/71=1%
-# Finished Make data base on Sun May 22 19:12:44 2022
+# Load=42/8192=1%, Rehash=0, Collisions=1/62=2%
+# Finished Make data base on Mon May 23 00:02:57 2022
 
  

@@ -13,6 +13,10 @@ class Walls:public GameEntity{
 
     public:
         Walls(float length,float breadth, int x, int y);
+        
+        std::string getType() override;
+        
+        void update(std::vector <GameEntity *>* gameEnts) override; 
 
     //   ~Walls();
 };

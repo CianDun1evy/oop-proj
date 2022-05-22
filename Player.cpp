@@ -4,7 +4,7 @@
 #include "Player.h"
 
 
-Player::Player(int psize, int x, int y,sf::Color colour){
+Player::Player(int psize, int x, int y,sf::Color colour, int playerConf){
 
      // store the size of the player
     this->size = sf::Vector2f(psize,psize);
@@ -13,17 +13,21 @@ Player::Player(int psize, int x, int y,sf::Color colour){
     body->setOrigin(sf::Vector2f(psize/2,psize/2));
     body->setPosition(sf::Vector2f(x,y));
     body->setFillColor(colour);
+
+    this->playerconfig = playerConf; // CHANGED
     std::cout<<"player initialised"<<std::endl;
 }
 
 
-void Player::respawn(int x,int y,GameEntity* _enemy){
+void Player::respawn(int x,int y,GameEntity* _enemy){ // rename
     // if a player overlaps with an enemy (overlaps must take vector containing enemies as input)
     if(this->overlaps(_enemy)==1){
         this->body->setPosition(x,y);
     }
     else{}
 }
+
+
 
 void Player::inputmove(int a){
     sf::Keyboard::Key l,r,u,d; // left, right, up, down
@@ -56,4 +60,30 @@ void Player::inputmove(int a){
         this->move(0,2);
     }
 }
+
+std::string Player::getType(){
+    return "Player";
+}
+
+
+void Player::update(std::vector <GameEntity *>* gameEnts){
+
+    this->inputmove(this->playerconfig);
+
+
+     // TO DO - do in
+    for (int i= 0 ; i<gameEnts->size();i++){
+
+        std::string type = (*gameEnts)[i]->getType();
+
+        if (type == "Wall" || type == "Enemy"){
+
+            this->respawn(100,200,(*gameEnts)[i]);
+        }
+        else if (type == "Player"){
+            // smile and wave
+        }
+    }
+}
+
 
