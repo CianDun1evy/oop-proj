@@ -2,7 +2,6 @@
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
-#include "Game.h"
 #include<fstream>
 #include<iostream>
 

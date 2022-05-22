@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
-#include "Game.h"
+#include "OHG_Game.h"
 #include "Enemy.h"
 #include "Walls.h"
 #include<fstream>
@@ -11,7 +11,7 @@
 
 // Constructor for Game
 
-Game::Game(int x, int y, std::string title){
+OHG_Game::OHG_Game(int x, int y, std::string title){
     
     // Initialise Game Window
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
@@ -53,7 +53,7 @@ Game::Game(int x, int y, std::string title){
 }
 
 // Destructor for Game
-Game::~Game(){
+OHG_Game::~OHG_Game(){
 
     // delete [] player1;
     // delete [] player2;
@@ -65,7 +65,7 @@ Game::~Game(){
 
 
 // Run function which deals with running the gameplay
-void Game::run(){   
+void OHG_Game::run(){   
 
     std::cout<<"started running game"<<std::endl;
 
@@ -160,7 +160,7 @@ void Game::run(){
 
 // this could be used for enemies as well, so could have more ambiguous version:
 // void Game::setPositionData(int row,int col,std::string posfile, float array[row][col]){}
-void Game::setWallPositionsData(int row,int col,std::string posfile){
+void OHG_Game::setWallPositionsData(int row,int col,std::string posfile){
 
     // import file 
     
@@ -206,7 +206,7 @@ void Game::setWallPositionsData(int row,int col,std::string posfile){
 
 
 // Welcome screen - this is what happens first
-void Game::welcome()
+void OHG_Game::welcome()
 {
     std::cout<<"welcome!"<<std::endl;
 
@@ -303,7 +303,7 @@ void Game::welcome()
     }
 }
 
-void Game::no_of_players() {
+void OHG_Game::no_of_players() {
 
     std::cout<<"started num players"<<std::endl;
     
@@ -392,7 +392,7 @@ void Game::no_of_players() {
 
 
 
-void Game::controls() {
+void OHG_Game::controls() {
 
     // Nothing here yet? What is this for?
 
@@ -401,7 +401,7 @@ void Game::controls() {
 
 
 
-void Game::result() {
+void OHG_Game::result() {
 
     // Fonts
         sf::Font gothic;

@@ -2,7 +2,6 @@
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
 #include "Player.h"
-#include "Game.h"
 
 
 void GameEntity::move(float x, float y){ 

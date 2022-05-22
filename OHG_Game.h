@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef GAME_H
-#define GAME_H
+#ifndef OHG_GAME_H
+#define OHG_GAME_H
 
 #include <SFML/Graphics.hpp>
 #include<fstream>
@@ -16,7 +16,7 @@
 
 #include "GenericGame.h"
 
-class Game: public GenericGame {  //: public GameEntity { // idk why but it inherited from GameEntity class before
+class OHG_Game: public GenericGame {  //: public GameEntity { // idk why but it inherited from GameEntity class before
     // game runs straight from here
 protected:
   //  sf::RenderWindow *window;
@@ -44,7 +44,7 @@ protected:
     std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
 
 public:
-    Game(int x, int y, std::string title);
+    OHG_Game(int x, int y, std::string title);
     void run();
     void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
     void welcome();
@@ -53,7 +53,7 @@ public:
     void controls(); // nothing here yet - delete
     
     void result();
-    ~Game();
+    ~OHG_Game();
 
 };
 #endif

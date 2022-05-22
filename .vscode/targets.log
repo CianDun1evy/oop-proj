@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 22 18:35:55 2022
+# Make data base, printed on Sun May 22 19:12:44 2022
 
 # Variables
 
@@ -71,6 +71,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 DISPLAY = :0
 # environment
+ 
 VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/cian/uni/oop-proj
@@ -91,7 +92,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = cian
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -171,9 +172,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 10964): 26 files, no impossibilities.
+# . (device 2080, inode 10964): 34 files, no impossibilities.
 
-# 26 files, no impossibilities in 1 directories.
+# 34 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -186,9 +187,16 @@ intest:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 14):
-	g++ ReadingTextTest.cpp -o t
+	g++ ReadingTextTest.cpp -o test1
 
-all: project1
+# Not a target:
+Enemy.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 19:12:23.289967614
+#  File has been updated.
+#  Successfully updated.
+
+all: project1 intest
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -197,19 +205,26 @@ all: project1
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-project: main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
+# Not a target:
+Walls.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 19:12:22.989967614
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+GameEntity.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-22 19:12:23.579967614
+#  File has been updated.
+#  Successfully updated.
+
+project: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o GenericGame.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 20):
-	clang++ $(debug) --std=c++17 main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp $(LIB1) -o t $(LIB2) $(SFML) 
-
-# Not a target:
-Game.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 16:44:32.617420523
-#  File has been updated.
-#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 18):
+	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o GenericGame.o $(LIB1) -o t $(LIB2) $(SFML)
 
 # Not a target:
 .SUFFIXES:
@@ -220,7 +235,7 @@ Game.cpp:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 18:34:43.299969411
+#  Last modified 2022-05-22 19:12:11.779967623
 #  File has been updated.
 #  Successfully updated.
 
@@ -231,7 +246,7 @@ test:
 #  recipe to execute (from 'Makefile', line 11):
 	g++ sfml.cpp -o test -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-project1: main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
+project1: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
@@ -244,31 +259,24 @@ project1: main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPo
 # automatic
 # * := 
 # automatic
-# + := main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
+# + := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
 # automatic
 # | := 
 # automatic
 # < := main.cpp
 # automatic
-# ^ := main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
+# ^ := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
 # automatic
-# ? := main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
+# ? := main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  recipe to execute (from 'Makefile', line 24):
-	clang++ $(debug) --std=c++17 main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -o t $(SFML)
+#  recipe to execute (from 'Makefile', line 21):
+	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 16:44:32.617420523
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-Player.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 15:40:23.777423583
+#  Last modified 2022-05-22 18:36:00.17996935
 #  File has been updated.
 #  Successfully updated.
 
@@ -276,13 +284,12 @@ Player.cpp:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
-Enemy.cpp:
+Game.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:45:10.742530194
+#  Last modified 2022-05-22 19:12:22.419967615
 #  File has been updated.
 #  Successfully updated.
 
@@ -290,44 +297,36 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
-	rm sfml t test
+#  recipe to execute (from 'Makefile', line 24):
+	rm t test1 *.o proj
 
 # Not a target:
-Walls.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:45:10.742530194
-#  File has been updated.
-#  Successfully updated.
+GenericGame.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-GameEntity.cpp:
+Player.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:45:10.742530194
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-WallPos.txt:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-22 00:45:10.742530194
+#  Last modified 2022-05-22 19:12:22.689967615
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=16/1024=2%, Rehash=0, Collisions=0/44=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/45=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 375 B / avg = 10 B
-# current buf: size = 8162 B / used = 375 B / count = 36 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 45 / storage = 456 B / avg = 10 B
+# current buf: size = 8162 B / used = 456 B / count = 45 / avg = 10 B
 
-# strcache performance: lookups = 63 / hit rate = 42%
+# strcache performance: lookups = 71 / hit rate = 36%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=1/63=2%
-# Finished Make data base on Sun May 22 18:35:55 2022
+# Load=45/8192=1%, Rehash=0, Collisions=1/71=1%
+# Finished Make data base on Sun May 22 19:12:44 2022
 
  

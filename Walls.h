@@ -5,7 +5,6 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
 #include "GameEntity.h"
-#include "Game.h"
 #include "Player.h"
 
 class Walls:public GameEntity{

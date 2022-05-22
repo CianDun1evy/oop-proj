@@ -3,13 +3,13 @@
 
 // made by Cian and Simran
 
-#include "Game.h"
+#include "OHG_Game.h"
 
 
 
 
 int main(){
-    Game GAM(960, 540,"daddy");
+    OHG_Game GAM(960, 540,"daddy");
     
     //GAM.welcome();
     GAM.run();
