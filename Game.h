@@ -19,6 +19,10 @@ protected:
     // set refresh rate for window maybe 60
     Player *player1;
     Player *player2;
+
+    std::vector<Player *> player_list;
+
+    int numPlayers; // numPlayers
     
     
     // List of Walls
@@ -43,7 +47,7 @@ public:
     void menu();
     void no_of_players();
     void controls();
-    void run(int players);
+    void run();
     void result();
     ~Game();
 
