@@ -1,8 +1,10 @@
 
 LIB1 = -I/usr/local/Cellar/sfml/2.5.1_1/include/
 LIB2 = -L/usr/local/Cellar/sfml/2.5.1_1/lib
+SFML = -lsfml-graphics -lsfml-window -lsfml-system
+debug = -fsanitize=address -Wall -Werror
 
-all: ohg1
+all: project1
 
 # Testing / Drafting makefiles
 test: 
@@ -11,14 +13,14 @@ test:
 intest:
 	g++ ReadingTextTest.cpp -o t
 
-# makefiles to use
-ohg1: main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
-	clang++ -fsanitize=address -Wall -Werror --std=c++17 main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp $(LIB1) -o t $(LIB2) -lsfml-graphics -lsfml-window -lsfml-system
+# makefiles to use:
+project: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
+	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o $(LIB1) -o t $(LIB2) $(SFML)
 
-ohg: main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp WallPos.txt
-	clang++ -fsanitize=address -Wall -Werror --std=c++17 main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -o t -lsfml-graphics -lsfml-window -lsfml-system
+project1: main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o
+	clang++ $(debug) main.cpp Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
 
 clean:
-	rm sfml t test
+	rm t test *.o proj
 
 #-fsanitize=address

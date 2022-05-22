@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/cian/uni/oop-proj'
+clang++ -fsanitize=address -Wall -Werror --std=c++17 main.cpp Walls.cpp Player.cpp GameEntity.cpp Game.cpp Enemy.cpp -o t -lsfml-graphics -lsfml-window -lsfml-system
+make: Leaving directory '/home/cian/uni/oop-proj'
+ 

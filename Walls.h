@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef WALLS_H
 #define WALLS_H 
 #include<iostream>

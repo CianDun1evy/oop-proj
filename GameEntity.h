@@ -1,3 +1,4 @@
+#pragma once
 
 #ifndef GAMEENTITY_H
 #define GAMEENTITY_H
