@@ -157,7 +157,8 @@ void Game::run(){
     }
 }
 
-
+// this could be used for enemies as well, so could have more ambiguous version:
+// void Game::setPositionData(int row,int col,std::string posfile, float array[row][col]){}
 void Game::setWallPositionsData(int row,int col,std::string posfile){
 
     // import file 
@@ -258,11 +259,11 @@ void Game::welcome()
 
             // for some reason this breaks everything
 
-            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
                 
-            //     window->close();
-            //     std::cout<<"Q pressed!"<<std::endl;
-            // }
+                window->close();
+                std::cout<<"Q pressed!"<<std::endl;
+            }
         }
 
         
@@ -351,11 +352,11 @@ void Game::no_of_players() {
         }
 
         // This also breaks the game - IT LOOKS LIKE MY LAPTOP IS REGISTERING AS EVERY SINGLE KEY PRESSED CONSTANTLY, IDK WHY
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        // {   
-        //     std::cout<<" Quitting in num players"<<std::endl;
-        //     this->window->close(); // break here before
-        // }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+        {   
+            std::cout<<" Quitting in num players"<<std::endl;
+            this->window->close(); // break here before
+        }
 
         std::cout<<"num players - checked window wasn't closed "<<std::endl;
 
