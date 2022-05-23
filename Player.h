@@ -12,9 +12,12 @@ class Player:public GameEntity{
         // nothing here yet
         int playerconfig;
     public:
-        // Default Constructor
+        // constructor
         Player(int size, int x, int y,sf::Color color,int config);
         
+        // destructor
+        ~Player();
+
         void respawn(int _x,int _y,GameEntity* _e); // respawn is called after "colliding"/overlap with an enemy 
         
         void inputmove(int type);

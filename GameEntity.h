@@ -15,9 +15,11 @@ protected:
     // set these vals to whatever it is when you initialise in each constructor
     // 
     
-
     // sf::RectangleShape* body; // okay so having a body doesn't work either
 public:
+
+    virtual ~GameEntity();
+
     void move(float x, float y);
 
     void draw(sf::RenderWindow *window);
@@ -30,9 +32,7 @@ public:
 
     virtual std::string getType()=0;
 
-    // sf::Vector2f getBodySize(){
-    //     return sf::Vector2f(this->sizex,this->sizey);
-    // }
+    
 };
 
 #endif

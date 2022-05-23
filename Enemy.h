@@ -13,8 +13,13 @@ class Enemy:public GameEntity{
 // nothing here yet
 
     public:
+        // constructor
         Enemy(int pos);
-        void move(int x, int y);
+
+        // destructor
+        ~Enemy();
+
+        // void move(int x, int y);
         
         std::string getType() override;
         

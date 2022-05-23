@@ -15,29 +15,29 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     
     // Initialise Game Window
     window = new sf::RenderWindow(sf::VideoMode(x, y), title);
+    
     window->setFramerateLimit(60);
 
-    // Initialise Players - probs only do 1 player (or have that as user input in menu, choose either 1 or two players)
+    // Initialise Player1 - player2 initialised later if required
     this->numPlayers = 1;
     player1 = new Player(20, 100, 200, sf::Color::Red,0);
 
     gameEntities.push_back(player1);
 
 
-
     // Enemy INITIALISATION   
     for (int i=0;i<10;i++){
         Enemy *temp;
         temp = new Enemy(i);
-        // enemylist.push_back(temp);
 
         gameEntities.push_back(temp);
     }   
 
-    std::cout<<"gonna get wall data"<<std::endl;
+    // INITIALISE WALLS AND THEIR POSITIONS
+
+    std::cout<<"getting wall data"<<std::endl;
     this->setWallPositionsData(8,4,"WallPos.txt");
     std::cout<<"got wall data"<<std::endl;
-
     
     for (int i=0;i<8;i++){
         Walls *temp1;
@@ -50,13 +50,34 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
 
 // Destructor for Game
 OHG_Game::~OHG_Game(){
-
-    // delete [] player1;
-    // delete [] player2;
     
-    // delete [] wall_list;
-    // delete [] enemylist;
-    // delete [] gameEntities;
+    std::cout<<"OHG destructor called"<<std::endl;
+    // for (int i =0 ; i<this->gameEntities.size()-1; i++){
+    //     gameEntities[i]->~GameEntity();
+    //     std::cout<<"destructor in there done"<<std::endl;
+    // }
+
+    // for (int i =0 ; i<this->gameEntities.size()-10; i++){
+        
+    //     delete gameEntities[i];
+    //     std::cout<<"Game Entity deleted"<<std::endl;
+    // }
+
+    for (int i =0 ; i<this->gameEntities.size(); i++){
+        
+        delete gameEntities[i];
+        // std::cout<<"Game Entity deleted"<<std::endl;
+    }
+
+    std::cout<<"player 1 dess"<<std::endl;
+
+    // delete player1;
+
+    // std::cout<<"player 1 deleted"<<std::endl;
+
+
+    delete this->window;
+    std::cout<<"Successful OHG destructor called"<<std::endl;
 }
 
 

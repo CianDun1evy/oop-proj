@@ -18,6 +18,14 @@ Player::Player(int psize, int x, int y,sf::Color colour, int playerConf){
     std::cout<<"player initialised"<<std::endl;
 }
 
+// Player Destructor
+Player::~Player(){
+    // free body with standard destructor for Shape0
+    delete this->body;
+    std::cout<<"Player destructor called"<<std::endl; 
+}
+
+
 
 void Player::respawn(int x,int y,GameEntity* _enemy){ // rename
     // if a player overlaps with an enemy (overlaps must take vector containing enemies as input)
@@ -72,7 +80,7 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
 
 
      // TO DO - do in
-    for (int i= 0 ; i<gameEnts->size();i++){
+    for (int i= 0 ; i<gameEnts->size()-1;i++){
 
         std::string type = (*gameEnts)[i]->getType();
 

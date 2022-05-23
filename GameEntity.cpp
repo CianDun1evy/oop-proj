@@ -3,6 +3,10 @@
 #include "GameEntity.h"
 #include "Player.h"
 
+GameEntity::~GameEntity(){
+    // delete this->body;
+    std::cout<<"Game Entity destructor called"<<std::endl;
+}
 
 void GameEntity::move(float x, float y){ 
             // could make this look more complex

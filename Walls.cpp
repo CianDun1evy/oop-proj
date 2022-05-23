@@ -19,6 +19,17 @@ Walls::Walls(float length,float breadth, int x, int y){
     std::cout<<"Wall Initialised"<<std::endl;
 }
 
+// Destructor
+Walls::~Walls(){
+    delete this->body;
+    std::cout<<"Wall destructor called"<<std::endl;
+}
+
+// Walls::~GameEntity(){
+//     this->body->~Shape();
+//     std::cout<<"Game Entity destructor called"<<std::endl;
+// }
+
 std::string Walls::getType(){
     return "Wall";
 }

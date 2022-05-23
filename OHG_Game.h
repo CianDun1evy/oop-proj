@@ -16,18 +16,18 @@
 
 #include "GenericGame.h"
 
-class OHG_Game: public GenericGame {  //: public GameEntity { // idk why but it inherited from GameEntity class before
+class OHG_Game: public GenericGame { 
     // game runs straight from here
-protected:
-  //  sf::RenderWindow *window;
+  protected:
+    // sf::RenderWindow *window;
     // set refresh rate for window maybe 60
     Player *player1;
     Player *player2;
-    
+  
     // std::vector<Player *> player_list;
 
     int numPlayers; // numPlayers
-    
+  
     
     // List of Walls
     // std::vector<Walls *> wall_list;
@@ -43,9 +43,15 @@ protected:
     // List of Game Entities
     std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
 
-public:
+  public:
+    // constructor
     OHG_Game(int x, int y, std::string title);
-    void run();
+    
+    // destructor
+    ~OHG_Game(); // have this as virtual?
+
+    void run() override;
+
     void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
     void welcome();
     void menu(); // nothing here yet - delete
@@ -53,8 +59,6 @@ public:
     void controls(); // nothing here yet - delete
     
     void result();
-    ~OHG_Game();
-
 };
 #endif
 

@@ -6,7 +6,7 @@
 #include <cstdlib>
 
 Enemy::Enemy(int pos) {
-    
+
     // hard-code simple enemy movement
     this->x = 192 + (50*pos);
     this->y = (rand()%450+50);
@@ -23,15 +23,21 @@ Enemy::Enemy(int pos) {
     std::cout<<"enemy initialised"<<std::endl;
 }
 
+Enemy::~Enemy(){
+    // free body with standard destructor for Shape
+    delete this->body;
+    std::cout<<"Enemy destructor called"<<std::endl;
+
+}
+
+
 std::string Enemy::getType(){
     return "Enemy";
 }
+
+
 void Enemy::update(std::vector <GameEntity *>* gameEnts){
 
     // moving around autonomously 
 
 }
-// void Enemy::draw(sf::RenderWindow *window){
-//     window->draw(*body);    
-//     std::cout<<"drawn!"<<std::endl;
-// }
