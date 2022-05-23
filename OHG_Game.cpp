@@ -109,9 +109,12 @@ void OHG_Game::run(){
 
         // update(); // input delta time
 
+        // clear screen and set a screen colour
+        // window->clear(sf::Color::Cyan); // this is pre cool
+
+        // clear screen
         window->clear();
-
-
+        
 
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
             gameEntities[i]->update(&gameEntities);
@@ -124,7 +127,7 @@ void OHG_Game::run(){
         }
         std::cout<<"game entities drawn"<<std::endl;
 
-        // drawing Game Entities in 
+        // display everything onto the screen
         window->display();
     }
 }

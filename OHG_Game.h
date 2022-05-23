@@ -21,6 +21,9 @@ class OHG_Game: public GenericGame {
   protected:
     // sf::RenderWindow *window;
     // set refresh rate for window maybe 60
+
+    int numDeaths;
+    
     Player *player1;
     Player *player2;
   
