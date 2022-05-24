@@ -4,11 +4,11 @@
 #include<fstream>
 #include<vector>
 
-#include "GameEntity.h" // Don't need to include this
 #include "Enemy.h"
 #include "Walls.h"
 #include "Player.h"
 #include "WinZone.h"
+#include "ScreenText.h"
 #include "OHG_Game.h"
 
 
@@ -101,16 +101,18 @@ void OHG_Game::run(){
             }
         }
 
+        for (int i= 0 ; i<gameEntities.size();i++){
+
+            std::string type = (gameEntities)[i]->getType();
+
+            if (type == "Player" && green1->overlaps(gameEntities[i])){
+                this->result();
+            }
+        }
+
         window->clear();
         
-
-        // sf::RectangleShape wins(sf::Vector2f(35,100));
-        // wins.setOrigin(sf::Vector2f(35/2,50));
-        // wins.setPosition(sf::Vector2f(960-15,540/2));
-        // wins.setFillColor(sf::Color::Green);
-        // window->draw(wins);
-        
-
+        // Update all game entities
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
             gameEntities[i]->update(&gameEntities);
         }
@@ -122,7 +124,6 @@ void OHG_Game::run(){
         }
         std::cout<<"game entities drawn"<<std::endl;
 
-        
         
         // display everything onto the screen
         window->display();
@@ -184,17 +185,24 @@ void OHG_Game::welcome()
     std::cout<<"welcome!"<<std::endl;
 
     sf::Text welcome;
+
     sf::Text game_name;
+
     sf::Font gothic;
     gothic.loadFromFile("gothicb.ttf");
+
+    // ScreenText welcome("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
+    
     welcome.setFont(gothic);
-    //welcome.setString(wel);
     welcome.setString("WELCOME TO");
     welcome.setCharacterSize(30);
     welcome.setPosition(50, 200);
     welcome.setFillColor(sf::Color::Cyan);
+
     sf::Font lora;
     lora.loadFromFile("Lora-MediumItalic.ttf");
+
+
     game_name.setFont(lora);
     game_name.setString("OOP's HARDEST GAME");
     game_name.setCharacterSize(50);
@@ -233,22 +241,12 @@ void OHG_Game::welcome()
 
             // for some reason this breaks everything
 
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
                 
-                window->close();
-                std::cout<<"Q pressed!"<<std::endl;
-            }
+            //     window->close();
+            //     std::cout<<"Q pressed!"<<std::endl;
+            // }
         }
-
-        
-       // std::cout<<"window wasn't closed"<<std::endl;
-
-        // Cian laptop got screwed by this bit for some reason, computer was registering that Q was being pressed when it wasn't - super stupid
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
-        //     std::cout<<"Q pressed!"<<std::endl;
-
-        //     break;
-        // }
 
         std::cout<<"checking to move to num players"<<std::endl;
 
@@ -266,8 +264,8 @@ void OHG_Game::welcome()
 
         // Refresh and Update Screen
         window->clear();
-
         window->draw(welcome);
+        // window->draw(welcome.getText());
         window->draw(game_name);
         window->draw(entry);
         window->draw(quit);
@@ -376,32 +374,39 @@ void OHG_Game::controls() {
 
 void OHG_Game::result() {
 
-    // Fonts
-        sf::Font gothic;
-        gothic.loadFromFile("gothicb.ttf");
-        sf::Font lora;
-        lora.loadFromFile("Lora-MediumItalic.ttf");
-        
-        sf::Text winner;
-        winner.setFont(gothic);
-        winner.setString("Cheers! You WON!!");
-        winner.setCharacterSize(70);
-        winner.setPosition(200, 220);
-        winner.setFillColor(sf::Color::Green);
+    std::cout<<"In Result "<<std::endl;
+// Fonts
+    sf::Font gothic;
+    gothic.loadFromFile("gothicb.ttf");
+    sf::Font lora;
+    lora.loadFromFile("Lora-MediumItalic.ttf");
 
-        sf::Text loser;
-        loser.setFont(gothic);
-        loser.setString("Try next time!!!");
-        loser.setCharacterSize(70);
-        loser.setPosition(200, 220);
-        loser.setFillColor(sf::Color::Green);
+    std::cout<<" loaded files - unnecessary"<<std::endl;
+    sf::Text winner;
+    winner.setFont(gothic);
+    winner.setString("Cheers! You WON!!");
+    winner.setCharacterSize(70);
+    winner.setPosition(200, 220);
+    winner.setFillColor(sf::Color::Green);
 
-        sf::Text exit;
-        exit.setFont(gothic);
-        exit.setString("Press SPACE to EXIT the game!!");
-        exit.setCharacterSize(25);
-        exit.setPosition(300, 500);
-        exit.setFillColor(sf::Color::Red);
+    // ScreenText winner("gothicb.ttf","Cheers! You WON!!",70,200,220,sf::Color::Green);
+    std::cout<<" made winner text"<<std::endl;
+
+
+// will not need a loser, as everyone is a winner :)
+    // sf::Text loser;
+    // loser.setFont(gothic);
+    // loser.setString("Try next time!!!");
+    // loser.setCharacterSize(70);
+    // loser.setPosition(200, 220);
+    // loser.setFillColor(sf::Color::Green);
+
+    sf::Text exit;
+    exit.setFont(gothic);
+    exit.setString("Press SPACE to EXIT the game!!");
+    exit.setCharacterSize(25);
+    exit.setPosition(300, 500);
+    exit.setFillColor(sf::Color::Red);
 
     while (window->isOpen())
     {
@@ -417,9 +422,10 @@ void OHG_Game::result() {
             }
         }
 
+        // close the window to exit the game
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         {
-            break;
+            window->close();
         }
 
         
@@ -428,6 +434,8 @@ void OHG_Game::result() {
 
         //window->draw(loser);
         window->draw(winner);
+        // window->draw(winner.getText());
+
         window->draw(exit);
 
         window->display();

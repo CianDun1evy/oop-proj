@@ -88,7 +88,7 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
 
 
      // TO DO - do in
-    for (int i= 0 ; i<gameEnts->size()-1;i++){
+    for (int i= 0 ; i<gameEnts->size();i++){
 
         std::string type = (*gameEnts)[i]->getType();
 
@@ -100,7 +100,9 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
             // smile and wave boys
         }
         else if (type == "WinZone"){
-           // really smile and wave for the cameras 
+           // really smile and wave for the cameras
+        
+
         }
     }
 }
