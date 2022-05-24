@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'WinZone.o', needed by 'project1'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 23 20:05:10 2022
+# Make data base, printed on Tue May 24 19:29:02 2022
 
 # Variables
 
@@ -169,15 +171,21 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 53389): 27 files, no impossibilities.
+# . (device 2080, inode 53389): 36 files, no impossibilities.
 
-# 27 files, no impossibilities in 1 directories.
+# 36 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+
+# Not a target:
+WinZone.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
 
 intest:
 #  Implicit rule search has not been done.
@@ -188,9 +196,10 @@ intest:
 
 # Not a target:
 Enemy.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-05-24 19:28:30.846147507
+#  File has been updated.
+#  Successfully updated.
 
 all: project1
 #  Command line target.
@@ -200,33 +209,36 @@ all: project1
 
 # Not a target:
 Walls.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-05-24 19:28:30.566147503
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 GameEntity.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-05-24 19:28:31.12614751
+#  File has been updated.
+#  Successfully updated.
 
-project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o
+project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 18):
-	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o  $(LIB1) -o t $(LIB2) $(SFML)
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o $(LIB1) -o t $(LIB2) $(SFML)
 
 # Not a target:
 OHG_Game.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2022-05-24 19:28:29.996147497
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-23 20:01:10.070402521
+#  Last modified 2022-05-24 19:28:53.676147771
 #  File has been updated.
 #  Successfully updated.
 
@@ -237,17 +249,17 @@ test:
 #  recipe to execute (from 'Makefile', line 11):
 	g++ sfml.cpp -o test -L/usr/local/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system
 
-project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o
+project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 21):
-	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o -o t $(SFML)
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-23 00:07:13.008065819
+#  Last modified 2022-05-24 18:44:27.446116844
 #  File has been updated.
 #  Successfully updated.
 
@@ -266,27 +278,26 @@ clean:
 
 # Not a target:
 Player.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-05-24 19:28:30.2761475
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/40=0%
+# Load=16/1024=2%, Rehash=0, Collisions=3/43=7%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
- 
-make: *** No rule to make target 'OHG_Game.o', needed by 'project1'.  Stop.
+# strcache buffers: 1 (0) / strings = 47 / storage = 512 B / avg = 10 B
+# current buf: size = 8162 B / used = 512 B / count = 47 / avg = 10 B
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 446 B / avg = 10 B
-# current buf: size = 8162 B / used = 446 B / count = 42 / avg = 10 B
-
-# strcache performance: lookups = 61 / hit rate = 31%
+# strcache performance: lookups = 72 / hit rate = 34%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=1/61=2%
-# Finished Make data base on Mon May 23 20:05:10 2022
+# Load=47/8192=1%, Rehash=0, Collisions=1/72=1%
+# Finished Make data base on Tue May 24 19:29:02 2022
 
  

@@ -14,11 +14,11 @@ intest:
 	g++ ReadingTextTest.cpp -o test1
 
 # makefiles to use:
-project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o 
-	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o  $(LIB1) -o t $(LIB2) $(SFML)
+project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o $(LIB1) -o t $(LIB2) $(SFML)
 
-project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o 
-	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o -o t $(SFML)
+project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o  GameEntity.o WinZone.o
+	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o -o t $(SFML)
 
 clean:
 	rm t test1 *.o proj

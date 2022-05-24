@@ -97,7 +97,10 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
             this->respawn(100,200,(*gameEnts)[i]);
         }
         else if (type == "Player"){
-            // smile and wave
+            // smile and wave boys
+        }
+        else if (type == "WinZone"){
+           // really smile and wave for the cameras 
         }
     }
 }

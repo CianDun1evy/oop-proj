@@ -12,7 +12,7 @@
 #include "Player.h"
 #include "Walls.h"
 #include "Enemy.h"
-
+#include "WinZone.h"
 
 #include "GenericGame.h"
 
@@ -39,7 +39,7 @@ class OHG_Game: public GenericGame {
 
     // std::vector<std::vector<float> > WallPos;
     
-    Walls * green1;
+    WinZone * green1;
     // List of Enemies
     // std::vector<Enemy *> enemylist; // add walls into a vector for easy looping through to detect for intersection
 

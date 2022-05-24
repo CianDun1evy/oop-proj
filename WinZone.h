@@ -1,18 +1,20 @@
 #pragma once
 
-#ifndef WALLS_H
-#define WALLS_H 
-#include<iostream>
+#ifndef WINZONE_H
+#define WINZONE_H
+
 #include<SFML/Graphics.hpp>
+#include<iostream>
+
 #include "GameEntity.h"
 
-class Walls:public GameEntity{
+class WinZone:public GameEntity{
     public:
         // constructor
-        Walls(float length,float breadth, int x, int y);
+        WinZone(float length,float breadth, int x, int y);
         
         // destructor
-        ~Walls();
+        ~WinZone();
 
         // set class type
         std::string getType() override;

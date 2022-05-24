@@ -11,7 +11,7 @@ Walls::Walls(float length,float breadth, int x, int y){
 
     // store the size of the wall
     this->size = sf::Vector2f(length,breadth);
-
+    
     body = new sf::RectangleShape(sf::Vector2f(length,breadth));
     body->setOrigin(sf::Vector2f(length/2,breadth/2));
     body->setPosition(sf::Vector2f(x,y));
@@ -25,17 +25,13 @@ Walls::~Walls(){
     std::cout<<"Wall destructor called"<<std::endl;
 }
 
-// Walls::~GameEntity(){
-//     this->body->~Shape();
-//     std::cout<<"Game Entity destructor called"<<std::endl;
-// }
 
 std::string Walls::getType(){
     return "Wall";
 }
 
 void Walls::update(std::vector <GameEntity *>* gameEnts){
-
+    // do nothing
 }
 
 

@@ -1,13 +1,17 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "GameEntity.h"
-#include "Player.h"
-#include "OHG_Game.h"
-#include "Enemy.h"
-#include "Walls.h"
 #include<fstream>
 #include<vector>
+
+#include "GameEntity.h" // Don't need to include this
+#include "Enemy.h"
+#include "Walls.h"
+#include "Player.h"
+#include "WinZone.h"
+#include "OHG_Game.h"
+
+
 
 // Constructor for Game
 
@@ -18,18 +22,23 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     
     window->setFramerateLimit(60);
 
+    // Initialise Win Zone
+    green1 = new WinZone(100,100,960-50,540/2);  //(10,100, 960 - 10 / 2, 540 / 2);
+    gameEntities.push_back(green1);
+    std::cout<<"win zone initialised"<<std::endl;
+
     // Initialise Player1 - player2 initialised later if required
     this->numPlayers = 1;
     player1 = new Player(20, 100, 200, sf::Color::Red,0);
-
     gameEntities.push_back(player1);
+    std::cout<<"player initialised"<<std::endl;
+
 
 
     // Enemy INITIALISATION   
     for (int i=0;i<10;i++){
         Enemy *temp;
         temp = new Enemy(i);
-
         gameEntities.push_back(temp);
     }   
 
@@ -45,7 +54,10 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
         gameEntities.push_back(temp1);
        // std::cout<<"oki doki again "<<std::endl;
     }
-    std::cout<<"good to go"<<std::endl;
+    std::cout<<"Walls initialised"<<std::endl;
+
+    
+    std::cout<<" good to go"<<std::endl;
 }
     
 
@@ -53,16 +65,6 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
 OHG_Game::~OHG_Game(){
     
     std::cout<<"OHG destructor called"<<std::endl;
-    // for (int i =0 ; i<this->gameEntities.size()-1; i++){
-    //     gameEntities[i]->~GameEntity();
-    //     std::cout<<"destructor in there done"<<std::endl;
-    // }
-
-    // for (int i =0 ; i<this->gameEntities.size()-10; i++){
-        
-    //     delete gameEntities[i];
-    //     std::cout<<"Game Entity deleted"<<std::endl;
-    // }
 
     for (int i =0 ; i<this->gameEntities.size(); i++){
         
@@ -70,15 +72,10 @@ OHG_Game::~OHG_Game(){
         // std::cout<<"Game Entity deleted"<<std::endl;
     }
 
-    std::cout<<"player 1 dess"<<std::endl;
-
-    // delete player1;
-
-    // std::cout<<"player 1 deleted"<<std::endl;
-
+    std::cout<<"Game Entities deleted" <<std::endl;
 
     delete this->window;
-    std::cout<<"Successful OHG destructor called"<<std::endl;
+    std::cout<<"Successfully called and executed OHG destructor"<<std::endl;
 }
 
 
@@ -90,7 +87,6 @@ void OHG_Game::run(){
     if (this->numPlayers == 2){
             player2 = new Player(20, 150, 200, sf::Color::Cyan,1);
             gameEntities.push_back(player2);
-            // player_list.push_back(player2); // cOMMENTED
     }
 
     while (window->isOpen()){
@@ -104,26 +100,16 @@ void OHG_Game::run(){
                 std::cout << "window closed" << std::endl;
             }
         }
-        std::cout<<"checked window closed"<<std::endl;
 
-        std::cout<<"players can move"<<std::endl;
-
-        // update(); // input delta time
-
-        // clear screen and set a screen colour
-        // window->clear(sf::Color::Cyan); // this is pre cool
-       green1 = new Walls(10,100, 960 - 10 / 2, 540 / 2);
-        // clear screen
         window->clear();
         
 
-        sf::RectangleShape wins(sf::Vector2f(35,100));
-        wins.setOrigin(sf::Vector2f(35/2,50));
-        wins.setPosition(sf::Vector2f(960-15,540/2));
-        wins.setFillColor(sf::Color::Green);
-
-        //GameEntity::endgame(wins);
-        //GameEntity::(wins);
+        // sf::RectangleShape wins(sf::Vector2f(35,100));
+        // wins.setOrigin(sf::Vector2f(35/2,50));
+        // wins.setPosition(sf::Vector2f(960-15,540/2));
+        // wins.setFillColor(sf::Color::Green);
+        // window->draw(wins);
+        
 
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
             gameEntities[i]->update(&gameEntities);
@@ -135,12 +121,15 @@ void OHG_Game::run(){
             gameEntities[i]->draw(window);
         }
         std::cout<<"game entities drawn"<<std::endl;
-        window->draw(wins);
-        green1->draw(window);
+
+        
+        
         // display everything onto the screen
         window->display();
     }
 }
+
+
 
 // this could be used for enemies as well, so could have more ambiguous version:
 // void Game::setPositionData(int row,int col,std::string posfile, float array[row][col]){}

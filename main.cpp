@@ -11,8 +11,8 @@
 int main(){
     OHG_Game GAM(960, 540,"daddy");
     
-    GAM.welcome();
-    //GAM.run();
+    // GAM.welcome();
+    GAM.run();
     //GAM.result();
     return 0;
 }
