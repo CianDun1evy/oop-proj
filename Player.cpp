@@ -99,7 +99,8 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
         else if (type == "Player"){
             // smile and wave boys
         }
-        else if (type == "WinZone"){
+        if (type == "WinZone"){
+            //std::cout<<"Winner"<<std::endl;
            // really smile and wave for the cameras 
         }
     }

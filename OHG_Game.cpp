@@ -23,7 +23,7 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     window->setFramerateLimit(60);
 
     // Initialise Win Zone
-    green1 = new WinZone(100,100,960-50,540/2);  //(10,100, 960 - 10 / 2, 540 / 2);
+    green1 = new WinZone(30,80,960-10,540/2);  //(10,100, 960 - 10 / 2, 540 / 2);
     gameEntities.push_back(green1);
     std::cout<<"win zone initialised"<<std::endl;
 
