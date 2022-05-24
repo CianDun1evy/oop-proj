@@ -9,10 +9,10 @@ GameEntity::~GameEntity(){
 }
 
 void GameEntity::move(float x, float y){ 
-            // could make this look more complex
-            this->body->move(x,y);
-            //std::cout<<"body moved!"<<std::endl;
-        }
+    // could make this look more complex
+    this->body->move(x,y);
+    //std::cout<<"body moved!"<<std::endl;
+}
 
 void GameEntity::draw(sf::RenderWindow *window){
     window->draw(*body);    

@@ -49,10 +49,10 @@ void Enemy::reset(int x,int y,GameEntity* entity){ // rename
 void Enemy::update(std::vector <GameEntity *>* gameEnts){
         // float x=(rand()%2+1);
         // float y=(rand()%2+1);
-        int count=0;
+    int count=0;
 //        this->move(0.1,0.2);
     // moving around autonomously 
-        for (int i= 0 ; i<gameEnts->size();i++){
+    for (int i= 0 ; i<gameEnts->size();i++){
             
             
         std::string type = (*gameEnts)[i]->getType();
@@ -62,8 +62,9 @@ void Enemy::update(std::vector <GameEntity *>* gameEnts){
             this->reset(250,50,(*gameEnts)[i]);
             count=i;
         }
-
     }
-            this->move(1,1);
+    float a = rand();
+    this->move(1,1);
+    
 
 }

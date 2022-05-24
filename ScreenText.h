@@ -8,14 +8,15 @@
 
 class ScreenText{
     protected:
-        sf::Text screenText;
+        sf::Text* screenText;
     public:
         // constructor
         ScreenText(std::string fontfile, std::string text,int charsize,int x, int y, sf::Color colour);
 
         ~ScreenText();
 
-        sf::Text getText();  
+        // sf::Text getText();  
+        void draw(sf::RenderWindow *window);
 };
 
 

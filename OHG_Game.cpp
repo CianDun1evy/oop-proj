@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "WinZone.h"
 #include "ScreenText.h"
+
 #include "OHG_Game.h"
 
 
@@ -66,8 +67,7 @@ OHG_Game::~OHG_Game(){
     
     std::cout<<"OHG destructor called"<<std::endl;
 
-    for (int i =0 ; i<this->gameEntities.size(); i++){
-        
+    for (int i =0 ; i<this->gameEntities.size(); i++){ 
         delete gameEntities[i];
         // std::cout<<"Game Entity deleted"<<std::endl;
     }
@@ -134,6 +134,7 @@ void OHG_Game::run(){
 
 // this could be used for enemies as well, so could have more ambiguous version:
 // void Game::setPositionData(int row,int col,std::string posfile, float array[row][col]){}
+
 void OHG_Game::setWallPositionsData(int row,int col,std::string posfile){
 
     // import file 
@@ -184,24 +185,29 @@ void OHG_Game::welcome()
 {
     std::cout<<"welcome!"<<std::endl;
 
-    sf::Text welcome;
 
     sf::Text game_name;
 
     sf::Font gothic;
     gothic.loadFromFile("gothicb.ttf");
 
+    sf::Font lora;
+    lora.loadFromFile("Lora-MediumItalic.ttf");
+    
+// Just could not figure out how to make a ScreenText class work. idk why
+
+    // this->_welcome = new ScreenText("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
+    // gameTexts.push_back(_welcome);
     // ScreenText welcome("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
     
+    sf::Text welcome;
     welcome.setFont(gothic);
     welcome.setString("WELCOME TO");
     welcome.setCharacterSize(30);
     welcome.setPosition(50, 200);
     welcome.setFillColor(sf::Color::Cyan);
 
-    sf::Font lora;
-    lora.loadFromFile("Lora-MediumItalic.ttf");
-
+    
 
     game_name.setFont(lora);
     game_name.setString("OOP's HARDEST GAME");
@@ -266,6 +272,11 @@ void OHG_Game::welcome()
         window->clear();
         window->draw(welcome);
         // window->draw(welcome.getText());
+        // welcome.draw(window);
+        // _welcome->draw(window);
+        std::cout<<"welcome - drew welcome"<<std::endl;
+
+        
         window->draw(game_name);
         window->draw(entry);
         window->draw(quit);
@@ -324,11 +335,11 @@ void OHG_Game::no_of_players() {
         }
 
         // This also breaks the game - IT LOOKS LIKE MY LAPTOP IS REGISTERING AS EVERY SINGLE KEY PRESSED CONSTANTLY, IDK WHY
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        {   
-            std::cout<<" Quitting in num players"<<std::endl;
-            this->window->close(); // break here before
-        }
+        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+        // {   
+        //     std::cout<<" Quitting in num players"<<std::endl;
+        //     this->window->close(); // break here before
+        // }
 
         std::cout<<"num players - checked window wasn't closed "<<std::endl;
 

@@ -13,6 +13,7 @@
 #include "Walls.h"
 #include "Enemy.h"
 #include "WinZone.h"
+#include "ScreenText.h"
 
 #include "GenericGame.h"
 
@@ -45,6 +46,12 @@ class OHG_Game: public GenericGame {
 
     // List of Game Entities
     std::vector<GameEntity *> gameEntities; // add walls into a vector for easy looping through to detect for intersection
+
+
+// could not figure out how to get Screen Text working in time
+    // ScreenText* _welcome;
+
+    // std::vector<ScreenText *> gameTexts;
 
   public:
     // constructor

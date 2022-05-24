@@ -1,7 +1,8 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/cian/uni/oop-project/oop-proj'
 g++    -c -o OHG_Game.o OHG_Game.cpp
 g++    -c -o Player.o Player.cpp
+ 
 g++    -c -o Walls.o Walls.cpp
 g++    -c -o Enemy.o Enemy.cpp
 g++    -c -o GameEntity.o GameEntity.cpp
