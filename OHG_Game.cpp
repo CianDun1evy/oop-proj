@@ -47,6 +47,7 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     }
     std::cout<<"good to go"<<std::endl;
 }
+    
 
 // Destructor for Game
 OHG_Game::~OHG_Game(){
@@ -111,10 +112,18 @@ void OHG_Game::run(){
 
         // clear screen and set a screen colour
         // window->clear(sf::Color::Cyan); // this is pre cool
-
+       green1 = new Walls(10,100, 960 - 10 / 2, 540 / 2);
         // clear screen
         window->clear();
         
+
+        sf::RectangleShape wins(sf::Vector2f(35,100));
+        wins.setOrigin(sf::Vector2f(35/2,50));
+        wins.setPosition(sf::Vector2f(960-15,540/2));
+        wins.setFillColor(sf::Color::Green);
+
+        //GameEntity::endgame(wins);
+        //GameEntity::(wins);
 
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
             gameEntities[i]->update(&gameEntities);
@@ -126,7 +135,8 @@ void OHG_Game::run(){
             gameEntities[i]->draw(window);
         }
         std::cout<<"game entities drawn"<<std::endl;
-
+        window->draw(wins);
+        green1->draw(window);
         // display everything onto the screen
         window->display();
     }

@@ -35,6 +35,14 @@ void Player::respawn(int x,int y,GameEntity* _enemy){ // rename
     else{}
 }
 
+// bool Player::endgame(GameEntity* green) {
+//     if (this->overlaps(green)==1) {
+//         return 1;
+//     }
+//     else { 
+//         return 0; }
+// }
+
 
 
 void Player::inputmove(int a){
