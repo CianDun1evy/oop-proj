@@ -101,10 +101,8 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
         }
         else if (type == "WinZone"){
            // really smile and wave for the cameras
-        
 
         }
     }
 }
-
 

@@ -1,6 +1,12 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/cian/uni/oop-project/oop-proj'
+g++    -c -o OHG_Game.o OHG_Game.cpp
+g++    -c -o Player.o Player.cpp
+g++    -c -o Walls.o Walls.cpp
+g++    -c -o Enemy.o Enemy.cpp
+g++    -c -o GameEntity.o GameEntity.cpp
 g++    -c -o WinZone.o WinZone.cpp
-clang++ --std=c++17 -fsanitize=address -Wall -Werror main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o -o t -lsfml-graphics -lsfml-window -lsfml-system 
+g++    -c -o ScreenText.o ScreenText.cpp
+clang++ --std=c++17 -fsanitize=address -Wall -Werror main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o ScreenText.o -o t -lsfml-graphics -lsfml-window -lsfml-system 
 make: Leaving directory '/home/cian/uni/oop-project/oop-proj'
  

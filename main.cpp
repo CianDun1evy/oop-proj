@@ -9,10 +9,10 @@
 
 
 int main(){
-    OHG_Game GAM(960, 540,"daddy");
+    OHG_Game GAM(960, 540,"OOP's Hardest Game!!!");
     
-    // GAM.welcome();
-    GAM.run();
-    // GAM.result();
+    GAM.welcome();
+    //GAM.run();
+    //GAM.result();
     return 0;
 }
