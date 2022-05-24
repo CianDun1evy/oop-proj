@@ -23,6 +23,8 @@ class Player:public GameEntity{
         void inputmove(int type);
 
         std::string getType() override;
+
+        bool endgame(GameEntity* green);
         
         void update(std::vector <GameEntity *>* gameEnts) override;    
 
