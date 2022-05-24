@@ -24,7 +24,11 @@ class OHG_Game: public GenericGame {
     // set refresh rate for window maybe 60
 
     int numDeaths;
+    sf::Text displayDeaths;
+    sf::Font deathFont;
     
+    ScreenText* deathMessage;
+
     Player *player1;
     Player *player2;
   

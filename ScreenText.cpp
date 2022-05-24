@@ -4,10 +4,11 @@
 #include "ScreenText.h"
 
 ScreenText::ScreenText(std::string fontfile, std::string text,int charsize,int x, int y, sf::Color colour){
-    
+    std::cout<<"making screen text"<<std::endl;
     screenText = new sf::Text;
     sf::Font font;
     font.loadFromFile(fontfile);
+    std::cout<<"read from font"<<std::endl;
 
     this->screenText->setFont(font);
     this->screenText->setString(text);

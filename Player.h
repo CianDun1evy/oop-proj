@@ -11,6 +11,7 @@ class Player:public GameEntity{
     protected:
         // nothing here yet
         int playerconfig;
+        int numberofDeaths;
     public:
         // constructor
         Player(int size, int x, int y,sf::Color color,int config);
@@ -26,7 +27,9 @@ class Player:public GameEntity{
 
         bool endgame(GameEntity* green);
         
-        void update(std::vector <GameEntity *>* gameEnts) override;    
+        void update(std::vector <GameEntity *>* gameEnts) override;  
+
+        int getDeaths(); 
 
 };
 

@@ -32,6 +32,7 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     this->numPlayers = 1;
     player1 = new Player(20, 100, 200, sf::Color::Red,0);
     gameEntities.push_back(player1);
+    numDeaths = 0;
     std::cout<<"player initialised"<<std::endl;
 
 
@@ -58,6 +59,19 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     std::cout<<"Walls initialised"<<std::endl;
 
     
+    // Initialise Text here:
+
+    // this->deathMessage = new ScreenText("gothicb.ttf","Deaths: 0",30,100,100,sf::Color::Red);
+
+    this->deathFont.loadFromFile("gothicb.ttf");
+
+    displayDeaths.setFont(deathFont);
+    // displayDeaths.setString("Deaths");
+    displayDeaths.setCharacterSize(30);
+    displayDeaths.setPosition(50, 200);
+    displayDeaths.setFillColor(sf::Color::Red);
+
+
     std::cout<<" good to go"<<std::endl;
 }
     
@@ -89,6 +103,7 @@ void OHG_Game::run(){
             gameEntities.push_back(player2);
     }
 
+
     while (window->isOpen()){
 
         // handles closing the window manually
@@ -107,7 +122,7 @@ void OHG_Game::run(){
 
             if (type == "Player" && green1->overlaps(gameEntities[i])){
                 this->result();
-            }
+            }   
         }
 
         window->clear();
@@ -124,7 +139,21 @@ void OHG_Game::run(){
         }
         std::cout<<"game entities drawn"<<std::endl;
 
+        // this->deathMessage->draw(window);
+
+        // Display Death counter
+
+        this->numDeaths = player1->getDeaths();
         
+        if (this->numPlayers == 2){
+            this->numDeaths+=player2->getDeaths();
+        }
+
+        std::string msg;
+        msg =  "Death: " + std::to_string(this->numDeaths);
+        this->displayDeaths.setString(msg);
+
+        window->draw(this->displayDeaths);
         // display everything onto the screen
         window->display();
     }
@@ -265,8 +294,6 @@ void OHG_Game::welcome()
 
         std::cout<<"welcome - after check to go to numplayers"<<std::endl;
 
-        // std::string wel="welcome";
-        // // Welcome text
 
         // Refresh and Update Screen
         window->clear();

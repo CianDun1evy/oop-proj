@@ -15,6 +15,9 @@ Player::Player(int psize, int x, int y,sf::Color colour, int playerConf){
     body->setFillColor(colour);
 
     this->playerconfig = playerConf; // CHANGED
+
+    this->numberofDeaths = 0;
+    
     std::cout<<"player initialised"<<std::endl;
 }
 
@@ -27,21 +30,14 @@ Player::~Player(){
 
 
 
-void Player::respawn(int x,int y,GameEntity* _enemy){ // rename
+void Player::respawn(int x,int y,GameEntity* entity){ // rename
     // if a player overlaps with an enemy (overlaps must take vector containing enemies as input)
-    if(this->overlaps(_enemy)==1){
+    if(this->overlaps(entity)==1){
         this->body->setPosition(x,y);
+        this->numberofDeaths++;
     }
     else{}
 }
-
-// bool Player::endgame(GameEntity* green) {
-//     if (this->overlaps(green)==1) {
-//         return 1;
-//     }
-//     else { 
-//         return 0; }
-// }
 
 
 
@@ -106,3 +102,7 @@ void Player::update(std::vector <GameEntity *>* gameEnts){
     }
 }
 
+
+int Player::getDeaths(){
+    return this->numberofDeaths;
+}
