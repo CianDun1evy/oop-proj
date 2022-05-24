@@ -22,7 +22,7 @@ class Enemy:public GameEntity{
         // void move(int x, int y);
         
         std::string getType() override;
-        
+        void reset(int x,int y,GameEntity* entity);
         void update(std::vector <GameEntity *>* gameEnts) override; 
 };
 
