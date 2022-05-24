@@ -222,7 +222,7 @@ void OHG_Game::welcome()
     std::cout<<"welcome!"<<std::endl;
 
 
-    sf::Text game_name;
+    
 
     sf::Font gothic;
     gothic.loadFromFile("gothicb.ttf");
@@ -244,12 +244,14 @@ void OHG_Game::welcome()
     welcome.setFillColor(sf::Color::Cyan);
 
     
-
-    game_name.setFont(lora);
-    game_name.setString("OOP's HARDEST GAME");
-    game_name.setCharacterSize(50);
-    game_name.setPosition(50, 230);
-    game_name.setFillColor(sf::Color::Green);
+    ScreenText game_name("Lora-MediumItalic.ttf","OOP MAKES ME HARD",50,50,230,sf::Color::Green);
+    
+    // sf::Text game_name;
+    // game_name.setFont(lora);
+    // game_name.setString("OOP's HARDEST GAME");
+    // game_name.setCharacterSize(50);
+    // game_name.setPosition(50, 230);
+    // game_name.setFillColor(sf::Color::Green);
     
     sf::Text entry;
     entry.setFont(gothic);
@@ -310,7 +312,9 @@ void OHG_Game::welcome()
         // std::cout<<"welcome - drew welcome"<<std::endl;
 
         
-        window->draw(game_name);
+        // window->draw(game_name);
+        game_name.draw(window);
+        
         window->draw(entry);
         window->draw(quit);
 

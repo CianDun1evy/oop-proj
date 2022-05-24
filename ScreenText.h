@@ -8,7 +8,8 @@
 
 class ScreenText{
     protected:
-        sf::Text* screenText;
+        sf::Text screenText;
+        sf::Font screenFont;
     public:
         // constructor
         ScreenText(std::string fontfile, std::string text,int charsize,int x, int y, sf::Color colour);
