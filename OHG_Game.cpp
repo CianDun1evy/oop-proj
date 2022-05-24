@@ -127,7 +127,7 @@ void OHG_Game::run(){
             std::string type = (gameEntities)[i]->getType();
 
             if (type == "Player" && green1->overlaps(gameEntities[i])){
-                this->result();
+                this->win();
             }   
         }
 
@@ -410,18 +410,11 @@ void OHG_Game::no_of_players() {
 
 
 
-void OHG_Game::controls() {
-
-    // Nothing here yet? What is this for?
-
-}
 
 
+void OHG_Game::win() {
 
-
-void OHG_Game::result() {
-
-    std::cout<<"In Result "<<std::endl;
+    std::cout<<"In win "<<std::endl;
 // Fonts
     sf::Font gothic;
     gothic.loadFromFile("gothicb.ttf");

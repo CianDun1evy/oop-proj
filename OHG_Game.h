@@ -26,7 +26,7 @@ class OHG_Game: public GenericGame {
     int numDeaths;
     sf::Text displayDeaths;
     sf::Font deathFont;
-    
+
     ScreenText* deathMessage;
 
     Player *player1;
@@ -62,17 +62,22 @@ class OHG_Game: public GenericGame {
     OHG_Game(int x, int y, std::string title);
     
     // destructor
-    ~OHG_Game(); // have this as virtual?
+    ~OHG_Game();
 
+    // run function from where main game takes place
     void run() override;
 
-    void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
-    void welcome();
-    void menu(); // nothing here yet - delete
-    void no_of_players();
-    void controls(); // nothing here yet - delete
+    // welcome screen function
+    void welcome(); 
     
-    void result();
+    // number of player selection screen
+    void no_of_players(); 
+
+    // win screen    
+    void win();
+
+    void setWallPositionsData(int numWalls, int numparameters,std::string positionfile); // maybe have WallsPos more ambiguous
+    
 };
 #endif
 
