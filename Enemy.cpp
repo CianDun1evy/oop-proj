@@ -20,7 +20,7 @@ Enemy::Enemy(int pos) {
     this->body->setOrigin(sf::Vector2f(10,10));
     this->body->setPosition(sf::Vector2f(x,y));
     this->body->setFillColor(sf::Color::Blue);
-    std::cout<<"enemy initialised"<<std::endl;
+    std::cout<<"Enemy initialised"<<std::endl;
 }
 
 Enemy::~Enemy(){
@@ -49,22 +49,23 @@ void Enemy::reset(int x,int y,GameEntity* entity){ // rename
 void Enemy::update(std::vector <GameEntity *>* gameEnts){
         // float x=(rand()%2+1);
         // float y=(rand()%2+1);
-    int count=0;
+    // int count=0;
 //        this->move(0.1,0.2);
     // moving around autonomously 
+
     for (int i= 0 ; i<gameEnts->size();i++){
             
             
         std::string type = (*gameEnts)[i]->getType();
 
-        if (type == "Wall"){
+        if (type == "Wall" || type == "Player"){
 
             this->reset(250,50,(*gameEnts)[i]);
-            count=i;
         }
     }
-    float a = rand();
     this->move(1,1);
+    
+    // std::cout<<"enemy updated"<<std::endl;
     
 
 }

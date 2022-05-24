@@ -26,14 +26,14 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     // Initialise Win Zone
     green1 = new WinZone(30,80,960-10,540/2);  //(10,100, 960 - 10 / 2, 540 / 2);
     gameEntities.push_back(green1);
-    std::cout<<"win zone initialised"<<std::endl;
+    // std::cout<<"win zone initialised"<<std::endl;
 
     // Initialise Player1 - player2 initialised later if required
     this->numPlayers = 1;
     player1 = new Player(20, 100, 200, sf::Color::Red,0);
     gameEntities.push_back(player1);
     numDeaths = 0;
-    std::cout<<"player initialised"<<std::endl;
+    // std::cout<<"player initialised"<<std::endl;
 
 
 
@@ -56,7 +56,7 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
         gameEntities.push_back(temp1);
        // std::cout<<"oki doki again "<<std::endl;
     }
-    std::cout<<"Walls initialised"<<std::endl;
+    // std::cout<<"Walls initialised"<<std::endl;
 
     
     // Initialise Text here:
@@ -68,7 +68,7 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
     displayDeaths.setFont(deathFont);
     // displayDeaths.setString("Deaths");
     displayDeaths.setCharacterSize(30);
-    displayDeaths.setPosition(50, 200);
+    displayDeaths.setPosition(35, 200);
     displayDeaths.setFillColor(sf::Color::Red);
 
 
@@ -86,10 +86,10 @@ OHG_Game::~OHG_Game(){
         // std::cout<<"Game Entity deleted"<<std::endl;
     }
 
-    std::cout<<"Game Entities deleted" <<std::endl;
+    std::cout<<"All Game Entities deleted" <<std::endl;
 
     delete this->window;
-    std::cout<<"Successfully called and executed OHG destructor"<<std::endl;
+    std::cout<<"Successfully called and executed OOP's Hardest Game destructor"<<std::endl;
 }
 
 
@@ -114,6 +114,12 @@ void OHG_Game::run(){
                 window->close();
                 std::cout << "window closed" << std::endl;
             }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+                
+                window->close();
+                std::cout<<"Q pressed!"<<std::endl;
+            }
+            
         }
 
         for (int i= 0 ; i<gameEntities.size();i++){
@@ -126,34 +132,35 @@ void OHG_Game::run(){
         }
 
         window->clear();
+
+        
+
         
         // Update all game entities
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
             gameEntities[i]->update(&gameEntities);
         }
-        std::cout<<"game entities updated"<<std::endl;
+        // std::cout<<"game entities updated"<<std::endl;
+
 
         // Draws Game Entities onto window (players, enemies, walls, etc)
         for (int i =0;i<gameEntities.size();i++){
             gameEntities[i]->draw(window);
         }
-        std::cout<<"game entities drawn"<<std::endl;
+        // std::cout<<"game entities drawn"<<std::endl;
 
-        // this->deathMessage->draw(window);
-
-        // Display Death counter
-
+        // Display Death Counter
         this->numDeaths = player1->getDeaths();
         
         if (this->numPlayers == 2){
             this->numDeaths+=player2->getDeaths();
         }
-
         std::string msg;
         msg =  "Death: " + std::to_string(this->numDeaths);
         this->displayDeaths.setString(msg);
-
         window->draw(this->displayDeaths);
+        // std::cout<<"death counter drawn"<<std::endl;
+
         // display everything onto the screen
         window->display();
     }
@@ -275,15 +282,14 @@ void OHG_Game::welcome()
             }
 
             // for some reason this breaks everything
-
-            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
                 
-            //     window->close();
-            //     std::cout<<"Q pressed!"<<std::endl;
-            // }
+                window->close();
+                std::cout<<"Q pressed!"<<std::endl;
+            }
         }
 
-        std::cout<<"checking to move to num players"<<std::endl;
+        // std::cout<<"checking to move to num players"<<std::endl;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         {
@@ -292,7 +298,7 @@ void OHG_Game::welcome()
         }
 
 
-        std::cout<<"welcome - after check to go to numplayers"<<std::endl;
+        // std::cout<<"welcome - after check to go to numplayers"<<std::endl;
 
 
         // Refresh and Update Screen
@@ -301,7 +307,7 @@ void OHG_Game::welcome()
         // window->draw(welcome.getText());
         // welcome.draw(window);
         // _welcome->draw(window);
-        std::cout<<"welcome - drew welcome"<<std::endl;
+        // std::cout<<"welcome - drew welcome"<<std::endl;
 
         
         window->draw(game_name);
@@ -350,7 +356,7 @@ void OHG_Game::no_of_players() {
 
         // handles closing the window manually
 
-        std::cout<<"Gonna check if window closed"<<std::endl;
+        // std::cout<<"Gonna check if window closed"<<std::endl;
         sf::Event e;
         while (window->pollEvent(e))
         {
@@ -359,16 +365,15 @@ void OHG_Game::no_of_players() {
                 window->close();
                 std::cout << "window closed" << std::endl;
             }
+        // This also breaks the game - IT LOOKS LIKE MY LAPTOP IS REGISTERING AS EVERY SINGLE KEY PRESSED CONSTANTLY, IDK WHY
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            {   
+                std::cout<<" Quitting in num players"<<std::endl;
+                this->window->close(); // break here before
+            }
         }
 
-        // This also breaks the game - IT LOOKS LIKE MY LAPTOP IS REGISTERING AS EVERY SINGLE KEY PRESSED CONSTANTLY, IDK WHY
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        // {   
-        //     std::cout<<" Quitting in num players"<<std::endl;
-        //     this->window->close(); // break here before
-        // }
-
-        std::cout<<"num players - checked window wasn't closed "<<std::endl;
+        // std::cout<<"num players - checked window wasn't closed "<<std::endl;
 
         
 
@@ -384,7 +389,7 @@ void OHG_Game::no_of_players() {
             this->run();
         }
 
-        std::cout<<"num players - player didn't press 1 or 2 "<<std::endl;
+        // std::cout<<"num players - player didn't press 1 or 2 "<<std::endl;
 
 
         window->clear();
@@ -419,7 +424,6 @@ void OHG_Game::result() {
     sf::Font lora;
     lora.loadFromFile("Lora-MediumItalic.ttf");
 
-    std::cout<<" loaded files - unnecessary"<<std::endl;
     sf::Text winner;
     winner.setFont(gothic);
     winner.setString("Cheers! You WON!!");

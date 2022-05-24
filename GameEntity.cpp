@@ -4,8 +4,8 @@
 #include "Player.h"
 
 GameEntity::~GameEntity(){
-    // delete this->body;
-    std::cout<<"Game Entity destructor called"<<std::endl;
+    // do nothing
+    // std::cout<<"Game Entity destructor called"<<std::endl;
 }
 
 void GameEntity::move(float x, float y){ 

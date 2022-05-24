@@ -9,6 +9,7 @@ WinZone::WinZone(float length,float breadth, int x, int y){
     body->setOrigin(sf::Vector2f(length/2,breadth/2));
     body->setPosition(sf::Vector2f(x,y));//(960-15,540/2));
     body->setFillColor(sf::Color::Green);
+    std::cout<<"WinZone initialised"<<std::endl;
 }
 
 // just make constructors for rest
