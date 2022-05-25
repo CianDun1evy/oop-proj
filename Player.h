@@ -9,8 +9,9 @@
 
 class Player:public GameEntity{
     protected:
-        // nothing here yet
+        // player config number
         int playerconfig;
+        // number of deaths
         int numberofDeaths;
     public:
         // constructor
@@ -19,16 +20,19 @@ class Player:public GameEntity{
         // destructor
         ~Player();
 
-        void respawn(int _x,int _y,GameEntity* _e); // respawn is called after "colliding"/overlap with an enemy 
+        // respawn is called after "colliding"/overlap with an enemy 
+        void respawn(int _x,int _y,GameEntity* _e); 
         
+        // player movement keys
         void inputmove(int type);
 
+        //returns player type
         std::string getType() override;
 
-        bool endgame(GameEntity* green);
         
         void update(std::vector <GameEntity *>* gameEnts) override;  
 
+        // returns num deaths
         int getDeaths(); 
 
 };
