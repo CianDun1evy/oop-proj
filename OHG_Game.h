@@ -22,12 +22,11 @@ class OHG_Game: public GenericGame {
   protected:
     // sf::RenderWindow *window;
     // set refresh rate for window maybe 60
-
+    std::string teamName;
     int numDeaths;
     sf::Text displayDeaths;
     sf::Font deathFont;
 
-    ScreenText* deathMessage;
 
     Player *player1;
     Player *player2;
@@ -72,6 +71,11 @@ class OHG_Game: public GenericGame {
     
     // number of player selection screen
     void no_of_players(); 
+
+    // input Team Name screen
+    void inputName();
+
+    void setScoreData();
 
     // win screen    
     void win();

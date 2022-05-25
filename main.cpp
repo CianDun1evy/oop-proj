@@ -13,6 +13,7 @@ int main(){
     
     GAM.welcomeScreen();
     // GAM.run();
-    //GAM.result();
+    // GAM.inputName();
+    // GAM.win();
     return 0;
 }

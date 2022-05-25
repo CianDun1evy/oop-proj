@@ -127,7 +127,7 @@ void OHG_Game::run(){
             std::string type = (gameEntities)[i]->getType();
 
             if (type == "Player" && green1->overlaps(gameEntities[i])){
-                this->win();
+                this->inputName();
             }   
         }
 
@@ -345,18 +345,20 @@ void OHG_Game::no_of_players() {
 }
 
 
+void OHG_Game::inputName(){
 
-
-// win screen
-void OHG_Game::win() {
-
-    std::cout<<"In win "<<std::endl;
+    std::cout<<"In input name "<<std::endl;
 
     ScreenText winner("gothicb.ttf","Cheers! You WON!!!",70,200,220,sf::Color::Green);
 
-    ScreenText exit("gothicb.ttf","Press SPACE to EXIT the game!!!",25,300,500,sf::Color::Red);
+    ScreenText exit("gothicb.ttf","Please TAB to enter your name xx!!!",25,300,500,sf::Color::Red);
 
     std::cout<<" made winner texts"<<std::endl;
+
+
+    // Testing player input 
+        // sf::String playerInput;
+        std::string playerInput;
 
     while (window->isOpen())
     {
@@ -370,17 +372,148 @@ void OHG_Game::win() {
                 window->close();
                 std::cout << "window closed" << std::endl;
             }
+            // close the window to exit the game
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)){  
+
+                // see if the player input matches what's allowed for team name input
+                if (playerInput.size()<20 && playerInput.size()>4){
+                    std::cout<<"great success! going to set this score :)"<<std::endl; 
+                    this->teamName = playerInput;
+                    this->setScoreData();
+                    this->win();
+                }
+                else{
+                    // std::cout<<" player input = nothing "<<std::endl;
+                    playerInput = " ";   
+
+                }
+            }
+
+            // sf::Event event;
+            if (e.type == sf::Event::TextEntered)
+            {
+                playerInput +=e.text.unicode;
+                // playerText.setString(playerInput);
+                std::cout<<"tstuff happen"<<std::endl;
+            }
         }
 
-        // close the window to exit the game
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        {
-            window->close();
-        }
+        std::string msg = "Congrats! You had " + std::to_string(this->numDeaths) + " Deaths! \n Enter Team Name: " + playerInput;
 
+        
+
+        ScreenText inputting("gothicb.ttf",msg,25,300,300,sf::Color::Red);
 
         window->clear();
         
+        inputting.draw(window);
+
+        winner.draw(window);
+        exit.draw(window);
+
+        window->display();
+    }
+}
+
+void OHG_Game::setScoreData(){
+
+    std::cout<<"in setScoreData"<<std::endl;
+
+    int death = this->numDeaths;
+    std::string name = this->teamName;
+
+    // std::cout<<"name = "<<name<< " death = "<<death<<std::endl;
+
+    // int prevdeath;
+    // std::string prevname;
+
+    std::string filename  = "ScoreData.txt";
+
+    std::fstream file;
+    
+    file.open(filename, std::ios_base::app | std::ios_base::in);
+
+
+    if (file.is_open()){
+        // file >> prevname;
+        // file >> prevdeath;
+        file << name << " " << death << std::endl;
+    }
+    std::cout << "Done !" << std::endl;
+    // std::cout << "Prevname = " << prevname << std::endl;
+    // std::cout << "Prevdeath = " << prevdeath << std::endl;
+    
+}
+
+
+
+
+
+
+
+
+// win screen
+void OHG_Game::win() {
+
+    std::cout<<"In win "<<std::endl;
+
+    ScreenText winner("gothicb.ttf","Thank you for playing \nOOP's Hardest Game!!",60,150,220,sf::Color::Green);
+
+    ScreenText exit("gothicb.ttf","Press SPACE to EXIT the game!!!",25,300,500,sf::Color::Red);
+
+    std::cout<<" made winner texts"<<std::endl;
+
+
+    // Testing player input 
+        // sf::String playerInput;
+        // std::string playerInput;
+        // sf::Text playerText;
+
+    while (window->isOpen())
+    {
+
+        // handles closing the window manually
+        sf::Event e;
+        while (window->pollEvent(e))
+        {
+            if (e.type == sf::Event::Closed)
+            { // instead of Closed, this can be key pressed, MouseWheelScrolled
+                window->close();
+                std::cout << "window closed" << std::endl;
+            }
+            // close the window to exit the game
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            {
+                window->close();
+            }
+
+            // // sf::Event event;
+            // if (e.type == sf::Event::TextEntered)
+            // {
+            //     playerInput +=e.text.unicode;
+            //     // playerText.setString(playerInput);
+            //     std::cout<<"tstuff happen"<<std::endl;
+            // }
+        }
+
+        
+
+    // std::string msg = "Congrats! You had " + std::to_string(this->numDeaths) + "Deaths! \n Enter Team Name: " + playerInput;
+ 
+    // ScreenText inputting("gothicb.ttf",msg,25,300,300,sf::Color::Red);
+
+
+        
+
+
+// window.draw(playerText);
+
+        window->clear();
+        
+        // TEST OUT DRAWING PLAYER TEXT
+       // window->draw(playerText);
+        // inputting.draw(window);
+
         winner.draw(window);
         exit.draw(window);
 
