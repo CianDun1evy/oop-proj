@@ -63,10 +63,9 @@ OHG_Game::OHG_Game(int x, int y, std::string title){
 
     // this->deathMessage = new ScreenText("gothicb.ttf","Deaths: 0",30,100,100,sf::Color::Red);
 
+    
     this->deathFont.loadFromFile("gothicb.ttf");
-
     displayDeaths.setFont(deathFont);
-    // displayDeaths.setString("Deaths");
     displayDeaths.setCharacterSize(30);
     displayDeaths.setPosition(35, 200);
     displayDeaths.setFillColor(sf::Color::Red);

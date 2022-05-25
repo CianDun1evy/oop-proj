@@ -1,7 +1,7 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
+
 #include "GameEntity.h"
-#include "Player.h"
 
 GameEntity::~GameEntity(){
     // do nothing

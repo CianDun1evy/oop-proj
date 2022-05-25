@@ -1,9 +1,9 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
-#include "GameEntity.h"
+
 #include "Player.h"
 #include "Enemy.h"
-#include <cstdlib>
+
 
 Enemy::Enemy(int pos) {
 

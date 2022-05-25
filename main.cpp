@@ -5,15 +5,11 @@
 
 #include "OHG_Game.h"
 
-
-
-
+ 
 int main(){
-    OHG_Game GAM(960, 540,"OOP's Hardest Game!!!");
+    OHG_Game game(960, 540,"OOP's Hardest Game!!!");
     
-    GAM.welcomeScreen();
-    // GAM.run();
-    // GAM.inputName();
-    // GAM.win();
+    game.welcomeScreen();
+
     return 0;
 }
