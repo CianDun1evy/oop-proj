@@ -14,9 +14,10 @@ class ScreenText{
         // constructor
         ScreenText(std::string fontfile, std::string text,int charsize,int x, int y, sf::Color colour);
 
+        // destructor
         ~ScreenText();
 
-        // sf::Text getText();  
+        // draws onto screen  
         void draw(sf::RenderWindow *window);
 };
 

@@ -12,7 +12,6 @@ WinZone::WinZone(float length,float breadth, int x, int y){
     std::cout<<"WinZone initialised"<<std::endl;
 }
 
-// just make constructors for rest
 
 // Destructor
 WinZone::~WinZone(){
