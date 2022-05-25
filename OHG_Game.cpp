@@ -166,10 +166,6 @@ void OHG_Game::run(){
 }
 
 
-
-// this could be used for enemies as well, so could have more ambiguous version:
-// void Game::setPositionData(int row,int col,std::string posfile, float array[row][col]){}
-
 void OHG_Game::setWallPositionsData(int row,int col,std::string posfile){
 
     // import file 
@@ -375,7 +371,7 @@ void OHG_Game::inputName(){
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)){  
 
                 // see if the player input matches what's allowed for team name input
-                if (playerInput.size()<20 && playerInput.size()>4){
+                if (playerInput.size()<20 && playerInput.size()>0){
                     std::cout<<"great success! going to set this score :)"<<std::endl; 
                     this->teamName = playerInput;
                     this->setScoreData();
