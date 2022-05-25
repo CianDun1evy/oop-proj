@@ -68,7 +68,7 @@ class OHG_Game: public GenericGame {
     void run() override;
 
     // welcome screen function
-    void welcome(); 
+    void welcomeScreen(); 
     
     // number of player selection screen
     void no_of_players(); 

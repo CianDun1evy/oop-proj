@@ -217,58 +217,20 @@ void OHG_Game::setWallPositionsData(int row,int col,std::string posfile){
 
 
 // Welcome screen - this is what happens first
-void OHG_Game::welcome()
+void OHG_Game::welcomeScreen()
 {
     std::cout<<"welcome!"<<std::endl;
 
-
-    
-
-    sf::Font gothic;
-    gothic.loadFromFile("gothicb.ttf");
-
-    sf::Font lora;
-    lora.loadFromFile("Lora-MediumItalic.ttf");
-    
-// Just could not figure out how to make a ScreenText class work. idk why
-
-    // this->_welcome = new ScreenText("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
-    // gameTexts.push_back(_welcome);
-    // ScreenText welcome("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
-    
-    sf::Text welcome;
-    welcome.setFont(gothic);
-    welcome.setString("WELCOME TO");
-    welcome.setCharacterSize(30);
-    welcome.setPosition(50, 200);
-    welcome.setFillColor(sf::Color::Cyan);
-
-    
+    // Make welcome screen text
+    ScreenText welcome("gothicb.ttf","WELCOME TO",30,50,200,sf::Color::Cyan);
     ScreenText game_name("Lora-MediumItalic.ttf","OOP MAKES ME HARD",50,50,230,sf::Color::Green);
-    
-    // sf::Text game_name;
-    // game_name.setFont(lora);
-    // game_name.setString("OOP's HARDEST GAME");
-    // game_name.setCharacterSize(50);
-    // game_name.setPosition(50, 230);
-    // game_name.setFillColor(sf::Color::Green);
-    
-    sf::Text entry;
-    entry.setFont(gothic);
-    entry.setString("Press SPACE to Continue!!");
-    entry.setCharacterSize(25);
-    entry.setPosition(330, 400);
-    entry.setFillColor(sf::Color::Red);
-
-    sf::Text quit;
-    quit.setFont(gothic);
-    quit.setString("Q-Quit!!");
-    quit.setCharacterSize(15);
-    quit.setPosition(800, 50);
-    quit.setFillColor(sf::Color::Red);
+    ScreenText entry("gothicb.ttf","Press SPACE to Continue!!!",25,330,400,sf::Color::Red);
+    ScreenText quit("gothicb.ttf","Q-Quit!!",15,800,50,sf::Color::Red);
+ 
 
     std::cout<<"welcome - initialised text "<<std::endl;
 
+    // Game Loop: where stuff happens
     while (window->isOpen())
     {
        // std::cout<<"looping in welcome!"<<std::endl;
@@ -299,25 +261,19 @@ void OHG_Game::welcome()
             this->no_of_players();
         }
 
-
         // std::cout<<"welcome - after check to go to numplayers"<<std::endl;
-
 
         // Refresh and Update Screen
         window->clear();
-        window->draw(welcome);
-        // window->draw(welcome.getText());
-        // welcome.draw(window);
-        // _welcome->draw(window);
-        // std::cout<<"welcome - drew welcome"<<std::endl;
-
+  
         
-        // window->draw(game_name);
+        // Draw text onto screen
+        welcome.draw(window);
         game_name.draw(window);
+        entry.draw(window);
+        quit.draw(window);
         
-        window->draw(entry);
-        window->draw(quit);
-
+        
         window->display();
     }
 }
@@ -326,32 +282,12 @@ void OHG_Game::no_of_players() {
 
     std::cout<<"started num players"<<std::endl;
     
-    // Fonts
-    sf::Font gothic;
-    gothic.loadFromFile("gothicb.ttf");
-    sf::Font lora;
-    lora.loadFromFile("Lora-MediumItalic.ttf");
     
-    sf::Text mode;
-    mode.setFont(gothic);
-    mode.setString("SELECT MODE:");
-    mode.setCharacterSize(25);
-    mode.setPosition(100, 370);
-    mode.setFillColor(sf::Color::Green);
+    ScreenText mode("gothicb.ttf","SELECT MODE:",25,100,370,sf::Color::Green);
 
-    sf::Text players_no;
-    players_no.setFont(gothic);
-    players_no.setString("Press 1 for Singleplayer mode\nPress 2 for Multiplayer mode");
-    players_no.setCharacterSize(25);
-    players_no.setPosition(100, 400);
-    players_no.setFillColor(sf::Color::Green);
-
-    sf::Text quit;
-    quit.setFont(gothic);
-    quit.setString("Q-Quit!!");
-    quit.setCharacterSize(15);
-    quit.setPosition(800, 50);
-    quit.setFillColor(sf::Color::Red);
+    ScreenText player_no("gothicb.ttf","Press 1 for Singleplayer mode\nPress 2 for Multiplayer mode",25,100,400,sf::Color::Green);
+ 
+    ScreenText quit("gothicb.ttf","Q-Quit!!",15,800,50,sf::Color::Red);
 
     std::cout<<"num-player - initialised text"<<std::endl;
 
@@ -395,12 +331,13 @@ void OHG_Game::no_of_players() {
 
         // std::cout<<"num players - player didn't press 1 or 2 "<<std::endl;
 
-
+        // Clear screen
         window->clear();
 
-        window->draw(mode);
-        window->draw(players_no);
-        window->draw(quit);
+        // draw text onto screen
+        mode.draw(window);
+        player_no.draw(window);
+        quit.draw(window);
 
         window->display();
     }
@@ -410,42 +347,16 @@ void OHG_Game::no_of_players() {
 
 
 
-
-
+// win screen
 void OHG_Game::win() {
 
     std::cout<<"In win "<<std::endl;
-// Fonts
-    sf::Font gothic;
-    gothic.loadFromFile("gothicb.ttf");
-    sf::Font lora;
-    lora.loadFromFile("Lora-MediumItalic.ttf");
 
-    sf::Text winner;
-    winner.setFont(gothic);
-    winner.setString("Cheers! You WON!!");
-    winner.setCharacterSize(70);
-    winner.setPosition(200, 220);
-    winner.setFillColor(sf::Color::Green);
+    ScreenText winner("gothicb.ttf","Cheers! You WON!!!",70,200,220,sf::Color::Green);
 
-    // ScreenText winner("gothicb.ttf","Cheers! You WON!!",70,200,220,sf::Color::Green);
-    std::cout<<" made winner text"<<std::endl;
+    ScreenText exit("gothicb.ttf","Press SPACE to EXIT the game!!!",25,300,500,sf::Color::Red);
 
-
-// will not need a loser, as everyone is a winner :)
-    // sf::Text loser;
-    // loser.setFont(gothic);
-    // loser.setString("Try next time!!!");
-    // loser.setCharacterSize(70);
-    // loser.setPosition(200, 220);
-    // loser.setFillColor(sf::Color::Green);
-
-    sf::Text exit;
-    exit.setFont(gothic);
-    exit.setString("Press SPACE to EXIT the game!!");
-    exit.setCharacterSize(25);
-    exit.setPosition(300, 500);
-    exit.setFillColor(sf::Color::Red);
+    std::cout<<" made winner texts"<<std::endl;
 
     while (window->isOpen())
     {
@@ -467,37 +378,14 @@ void OHG_Game::win() {
             window->close();
         }
 
-        
 
         window->clear();
-
-        //window->draw(loser);
-        window->draw(winner);
-        // window->draw(winner.getText());
-
-        window->draw(exit);
+        
+        winner.draw(window);
+        exit.draw(window);
 
         window->display();
     }
 
 }
 
-
-
-
-
-
-/*  // Old Code that may be useful if something breaks
-
-// WALL INITIALISATION
-
-      // boundary_top = new Walls(960, 15, 960 / 2, 15 / 2);
-    // boundary_bottom = new Walls(960, 15, 960 / 2, 540 - 15 / 2);
-    // boundary_left = new Walls(15, 540, 15 / 2, 540 / 2);
-    // boundary_right = new Walls(15, 540, 960 - 15 / 2, 540 / 2);
-    // wall11 = new Walls(5, 378, 192, 378 / 2);
-    // wall21 = new Walls(5, 108, 736, 108 / 2);
-    // wall12 = new Walls(5, 108, 192, 486);
-    // wall22 = new Walls(5, 378, 736, 351);
-    
-*/
