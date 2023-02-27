@@ -21,6 +21,19 @@ project: main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o Scr
 project1: main.cpp OHG_Game.o Player.o Walls.o Enemy.o  GameEntity.o WinZone.o ScreenText.o
 	clang++ $(debug) main.cpp OHG_Game.o Player.o Walls.o Enemy.o GameEntity.o WinZone.o ScreenText.o -o t $(SFML)
 
-clean:
-	rm t test1 *.o proj
+chat: ChatGPTGame.cpp
+	clang++ $(debug) ChatGPTGame.cpp $(LIB1) -o chat $(LIB2) $(SFML)
 
+c2: GPTTest2.cpp
+	clang++ $(debug) GPTTest2.cpp $(LIB1) -o c $(LIB2) $(SFML)
+flap: flappy.cpp
+	clang++ $(debug) flappy.cpp $(LIB1) -o f $(LIB2) $(SFML)
+	
+
+
+clean:
+	rm t test1 *.o proj chat c f
+
+#look into .a files, basically an archive 
+#this is good for some reason, cleans things?
+#.PHONY: all clean project1

@@ -131,9 +131,6 @@ void OHG_Game::run(){
         }
 
         window->clear();
-
-        
-
         
         // Update all game entities
         for (int i =0;i<gameEntities.size();i++){ //a sghdfgsawefsgdb
@@ -371,7 +368,7 @@ void OHG_Game::inputName(){
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)){  
 
                 // see if the player input matches what's allowed for team name input
-                if (playerInput.size()<20 && playerInput.size()>0){
+                if (playerInput.size()<20 && playerInput.size()>1){
                     std::cout<<"great success! going to set this score :)"<<std::endl; 
                     this->teamName = playerInput;
                     this->setScoreData();
@@ -379,7 +376,7 @@ void OHG_Game::inputName(){
                 }
                 else{
                     // std::cout<<" player input = nothing "<<std::endl;
-                    playerInput = " ";   
+                    playerInput = "";   
 
                 }
             }
